@@ -1,0 +1,162 @@
+/* ==========================================================================
+   CUMBIA REVERB - MAIN STYLES & RESPONSIVE LAYOUT
+   ========================================================================== */
+
+/* Main Containers */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.section-alt {
+  background: var(--color-bg-secondary);
+}
+
+/* Background Ambient Glow Accents */
+.ambient-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.ambient-cyan {
+  background: var(--color-neon-cyan);
+  top: -100px;
+  left: -100px;
+}
+
+.ambient-magenta {
+  background: var(--color-neon-magenta);
+  bottom: -100px;
+  right: -100px;
+}
+
+.ambient-gold {
+  background: var(--color-solar-gold);
+  top: 30%;
+  right: 10%;
+}
+
+/* --- Responsive Media Queries --- */
+
+/* Tablets and below (max-width: 992px) */
+@media (max-width: 992px) {
+  :root {
+    --nav-height: 70px;
+    --player-height: 75px;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-toggle-btn {
+    display: flex;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .tour-cta-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .stage-plot-container {
+    padding: 24px;
+  }
+
+  .stage-plot-backline {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-plot-frontline {
+    grid-template-columns: 1fr;
+  }
+
+  .youtube-subscribe-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .section {
+    padding: 70px 0;
+  }
+
+  .hero {
+    padding: calc(var(--nav-height) + 20px) 16px 60px 16px;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .tour-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .tour-status-box {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .player-volume-wrap {
+    display: none;
+  }
+
+  .player-track-info {
+    min-width: unset;
+    max-width: 160px;
+  }
+
+  .player-artist {
+    display: none;
+  }
+
+  .modal-window {
+    padding: 24px;
+  }
+}
+
+/* Small Mobiles (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .player-progress-wrap {
+    display: none;
+  }
+}
