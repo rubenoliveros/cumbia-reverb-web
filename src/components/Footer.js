@@ -2,6 +2,12 @@
 // Pie de página oficial con enlaces a redes, newsletter y créditos
 
 import { bandData } from '../data/bandData.js';
+import { featureRoutes } from '../routes.js';
+
+const footerLinks = (group) => featureRoutes
+  .filter(r => r.group === group)
+  .map(r => `<a href="#${r.path}" class="footer-link">${r.menuLabel}</a>`)
+  .join('');
 
 export function renderFooter() {
   const currentYear = new Date().getFullYear();
@@ -49,12 +55,8 @@ export function renderFooter() {
         <div>
           <h4 class="footer-heading">Navegación</h4>
           <div class="footer-links-list">
-            <a href="#hero" class="footer-link">Inicio</a>
-            <a href="#musica" class="footer-link">Música & Discografía</a>
-            <a href="#videos" class="footer-link">Videos & YouTube</a>
-            <a href="#integrantes" class="footer-link">Integrantes</a>
-            <a href="#gira" class="footer-link">Fechas de Gira</a>
-            <a href="#tienda" class="footer-link">Tienda de Merch</a>
+            <a href="#/" class="footer-link">Inicio</a>
+            ${footerLinks('main')}
           </div>
         </div>
 
@@ -62,9 +64,7 @@ export function renderFooter() {
         <div>
           <h4 class="footer-heading">Área Profesional</h4>
           <div class="footer-links-list">
-            <a href="#epk" class="footer-link">Rider Técnico</a>
-            <a href="#epk" class="footer-link">Stage Plot</a>
-            <a href="#epk" class="footer-link">Descargas EPK</a>
+            ${footerLinks('pro')}
             <a href="#booking" id="footerBookingLink" class="footer-link">Cotizar Concierto</a>
             <a href="mailto:${bandData.social.email}" class="footer-link">Contacto Directo</a>
           </div>

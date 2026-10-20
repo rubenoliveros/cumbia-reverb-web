@@ -1,19 +1,16 @@
 // src/main.js
-// Orquestador principal de la plataforma oficial de Cumbia Reverb
+// Orquestador principal de la plataforma oficial de Cumbia Reverb.
+// Renderiza el "shell" persistente (navbar, footer, reproductor, modales) una sola vez
+// y delega el contenido de <main> al enrutador. Las páginas se registran en routes.js.
 
 import './css/reset.css';
 import './css/variables.css';
 import './css/components.css';
 import './css/main.css';
 
+import { routes } from './routes.js';
+import { startRouter } from './router.js';
 import { renderNavbar, initNavbar } from './components/Navbar.js';
-import { renderHero, initHeroCanvas } from './components/Hero.js';
-import { renderMusicSection, initMusicSection } from './components/MusicSection.js';
-import { renderVideosSection } from './components/VideosSection.js';
-import { renderMembersSection } from './components/MembersSection.js';
-import { renderTourSection, initTourSection } from './components/TourSection.js';
-import { renderMerchSection, initMerchSection } from './components/MerchSection.js';
-import { renderEpkSection, initEpkSection } from './components/EpkSection.js';
 import { renderBookingModal, initBookingModal } from './components/BookingModal.js';
 import { renderLyricsModal, initLyricsModal } from './components/LyricsModal.js';
 import { renderAudioPlayer, initAudioPlayer } from './components/AudioPlayer.js';
@@ -27,16 +24,8 @@ function assembleApp() {
     <!-- Top Navigation -->
     ${renderNavbar()}
 
-    <!-- Main Content -->
-    <main>
-      ${renderHero()}
-      ${renderMusicSection()}
-      ${renderVideosSection()}
-      ${renderMembersSection()}
-      ${renderTourSection()}
-      ${renderMerchSection()}
-      ${renderEpkSection()}
-    </main>
+    <!-- Page Outlet (contenido según la ruta activa) -->
+    <main id="pageOutlet"></main>
 
     <!-- Footer -->
     ${renderFooter()}
@@ -52,17 +41,15 @@ function assembleApp() {
     <div class="toast-notice" id="globalToast" role="status" aria-live="polite"></div>
   `;
 
-  // Initialize interactive logic
+  // Shell persistente: se inicializa una sola vez
   initNavbar();
-  initHeroCanvas();
-  initMusicSection();
-  initTourSection();
-  initMerchSection();
-  initEpkSection();
   initBookingModal();
   initLyricsModal();
   initAudioPlayer();
   initFooter();
+
+  // Páginas
+  startRouter({ routes, outlet: document.getElementById('pageOutlet') });
 
   console.log("🎸 Cumbia Reverb Web App iniciada exitosamente!");
 }

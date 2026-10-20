@@ -116,8 +116,21 @@ c:/Projects/CR_Site/
     │   ├── BookingModal.js      # Formulario de cotización de fechas
     │   ├── LyricsModal.js       # Modal para leer letras completas de los temas
     │   └── Footer.js            # Redes, newsletter y pie de página
-    └── main.js                  # Ensamblador principal y listener DOMContentLoaded
+    ├── pages/
+    │   └── HomePage.js          # Landing: Hero + tarjetas generadas desde routes.js
+    ├── routes.js                # Registro central de páginas (fuente única de navegación)
+    ├── router.js                # Enrutador hash (#/musica) sin recarga; el reproductor sigue sonando
+    └── main.js                  # Shell persistente (navbar, footer, player, modales) + arranque del router
 ```
+
+### ➕ Agregar una nueva funcionalidad / página
+
+1. Crea el componente con `renderX()` (retorna HTML) y opcionalmente `initX()` (conecta eventos; puede retornar una función de limpieza que se ejecuta al salir de la página).
+2. Agrega una entrada en `featureRoutes` de `src/routes.js` (`path`, `title`, `menuLabel`, `icon`, `description`, `group`).
+3. Listo: navbar, menú móvil, footer y la tarjeta en la página de inicio se generan solos.
+
+> [!NOTE]
+> Las anclas antiguas de la versión one-page (`#musica`, `#tienda`, …) redirigen automáticamente a la nueva ruta mediante `legacyHash`.
 
 ---
 

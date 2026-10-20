@@ -114,11 +114,18 @@ export function initAudioPlayer() {
     titleEl.textContent = track.title;
     thumb.src = track.cover;
 
-    // Highlight card in music section if present
+    highlightTrackCard();
+  }
+
+  // Highlight card in music section if present
+  function highlightTrackCard() {
     document.querySelectorAll('.track-card').forEach((card, idx) => {
       card.classList.toggle('is-playing', idx === currentTrackIndex);
     });
   }
+
+  // Re-apply highlight when the music page is rendered again after navigation
+  window.addEventListener('routechange', highlightTrackCard);
 
   function play() {
     audio.play().then(() => {

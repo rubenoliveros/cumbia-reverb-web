@@ -19,6 +19,60 @@
   background: var(--color-bg-secondary);
 }
 
+/* Feature pages rendered by the router (clear the fixed navbar) */
+.page {
+  padding-top: var(--nav-height);
+  min-height: 100vh;
+}
+
+/* Landing page: feature cards generated from routes.js */
+.feature-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+  color: var(--color-text-main);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-glow-cyan);
+}
+
+.feature-card-icon {
+  font-size: 2rem;
+}
+
+.feature-card-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.feature-card-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.feature-card-cta {
+  font-weight: 700;
+  color: var(--color-neon-cyan);
+}
+
+.mobile-drawer-link.active {
+  color: var(--color-neon-cyan);
+}
+
 /* Background Ambient Glow Accents */
 .ambient-glow {
   position: absolute;

@@ -2,23 +2,21 @@
 // Barra de navegación responsiva con glassmorphism y menú móvil
 
 import { bandData } from '../data/bandData.js';
+import { featureRoutes } from '../routes.js';
 
 export function renderNavbar() {
   return `
     <nav class="navbar" id="mainNavbar">
       <div class="nav-container">
-        <a href="#hero" class="nav-brand" id="navBrandLink">
+        <a href="#/" class="nav-brand" id="navBrandLink" data-route-link="/">
           <img src="${bandData.images.favicon}" alt="Cumbia Reverb Logo" class="nav-brand-logo" width="38" height="38" />
           <span>${bandData.name}</span>
         </a>
 
         <div class="nav-menu" id="navDesktopMenu">
-          <a href="#musica" class="nav-link" id="navLinkMusic">Música</a>
-          <a href="#videos" class="nav-link" id="navLinkVideos">Videos</a>
-          <a href="#integrantes" class="nav-link" id="navLinkMembers">Banda</a>
-          <a href="#gira" class="nav-link" id="navLinkTour">Gira</a>
-          <a href="#tienda" class="nav-link" id="navLinkMerch">Tienda</a>
-          <a href="#epk" class="nav-link" id="navLinkEpk">EPK / Rider</a>
+          ${featureRoutes.map(r => `
+            <a href="#${r.path}" class="nav-link" data-route-link="${r.path}">${r.title}</a>
+          `).join('')}
         </div>
 
         <div class="nav-actions">
@@ -36,12 +34,9 @@ export function renderNavbar() {
     </nav>
 
     <div class="mobile-drawer" id="mobileDrawer">
-      <a href="#musica" class="mobile-drawer-link" data-close-drawer>🎵 Música & Discografía</a>
-      <a href="#videos" class="mobile-drawer-link" data-close-drawer>📺 Videos & YouTube</a>
-      <a href="#integrantes" class="mobile-drawer-link" data-close-drawer>⚡ Integrantes</a>
-      <a href="#gira" class="mobile-drawer-link" data-close-drawer>🎟️ Gira & Conciertos</a>
-      <a href="#tienda" class="mobile-drawer-link" data-close-drawer>👕 Tienda Oficial</a>
-      <a href="#epk" class="mobile-drawer-link" data-close-drawer>📋 EPK & Rider Técnico</a>
+      ${featureRoutes.map(r => `
+        <a href="#${r.path}" class="mobile-drawer-link" data-route-link="${r.path}" data-close-drawer>${r.icon} ${r.menuLabel}</a>
+      `).join('')}
       <button class="btn btn-primary" id="mobileBookingBtn" style="margin-top: 10px;">
         <span>Cotizar Concierto</span>
       </button>
