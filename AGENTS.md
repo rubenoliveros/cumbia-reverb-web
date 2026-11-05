@@ -22,46 +22,37 @@ Este archivo sirve como memoria persistente, contexto de arquitectura y guía op
 
 ## 👥 2. Alineación Oficial de la Banda (Lineup)
 
-1. **Celta** (Colombia 🇨🇴) — *Voz Principal & Energía Escénica*
-   - Micrófono Shure SM58 / Efecto Roland Space Echo vintage.
-2. **Miguel** (Colombia 🇨🇴) — *Guitarra Surf & Reverb*
-   - Fender Jaguar '65 / Fender Twin Reverb '68 / Tanque Spring Reverb a bulbos.
-3. **Javier** (Colombia 🇨🇴) — *Teclados & Sintetizadores Tropicales*
-   - Nord Electro 6D / Korg Minilogue XD / Leslie Simulator.
-4. **Matias** (Argentina 🇦🇷) — *Bajo Eléctrico & Groove Pulmón*
-   - Fender Precision Bass / Ampeg SVT-CL / Darkglass Vintage.
-5. **Ruben** (Venezuela 🇻🇪) — *Batería, Timbales & Percusión*
-   - Batería Ludwig Classic Maple / Timbales LP Tito Puente / Güiro artesanal metálico.
+Base: **Medellín, Colombia**. Banda de canciones originales.
+
+1. **Celta** (Colombia 🇨🇴) — Voz
+2. **Miguel** (Colombia 🇨🇴) — Guitarra
+3. **Matias** (Argentina 🇦🇷) — Bajo. Responde booking, WhatsApp y correo.
+4. **Ruben** (Venezuela 🇻🇪) — Batería & Percusión
+
+> [!IMPORTANT]
+> **Regla de contenido:** no inventar datos (bios, citas, equipos, fechas, cifras, vistas, productos, precios, letras, créditos, fotos o audios generados). Lo que la banda no haya confirmado va como placeholder (`Lorem ipsum` / `null`) y la UI lo oculta o lo marca como pendiente.
+
+**Objetivos:** darse a conocer, tocar en festivales grandes de Antioquia y Colombia, y organizar eventos propios de 500+ personas. No hacen matrimonios; sí eventos de empresa.
 
 ---
 
 ## 🔗 3. Canales Digitales & IDs Oficiales
 
-- **Spotify Artist ID:** `2QDEorhtmjmhWrFEItrp4i`
-  - URL Perfil: `https://open.spotify.com/artist/2QDEorhtmjmhWrFEItrp4i`
-  - Canciones en catálogo:
-    1. *Cumbia Reverb* (Single / Himno)
-    2. *Surfeando en la Nieve*
-    3. *Fuego Rojo*
-    4. *Si Era Tan Listo*
-- **YouTube Channel ID:** `UCJDQ5L37qhZuBiu1fbeNc_Q`
-  - URL Canal: `https://www.youtube.com/channel/UCJDQ5L37qhZuBiu1fbeNc_Q`
-  - Enlace Suscripción Rápida: `https://www.youtube.com/channel/UCJDQ5L37qhZuBiu1fbeNc_Q?sub_confirmation=1`
+- **Spotify Artist ID:** `2QDEorhtmjmhWrFEItrp4i` (`https://open.spotify.com/artist/2QDEorhtmjmhWrFEItrp4i`)
+  - Disco: *Sancocho Pa' Ratas*, 12 temas (`https://open.spotify.com/album/4QuTFlEuHSPElog6YmUZxb`). Portada: `public/images/covers/official_cover.jpg`.
+  - Tracklist completo en `src/data/musicData.js`.
+- **YouTube:** pendiente, el canal está por crear (`bandData.social.youtube = null`).
 - **Instagram:** `@cumbia_reverb` (`https://www.instagram.com/cumbia_reverb/`)
-- **Contacto Booking:** `booking@cumbiareverb.com`
+- **Contacto Booking:** `booking@cumbiareverb.com` · WhatsApp de Matías pendiente.
 
 ---
 
 ## 🎨 4. Sistema de Diseño Visual (Design Tokens)
 
-- **Filosofía:** Psicodelia Tropical Neón sobre Vinilo Profundo con Glassmorphism (`backdrop-filter: blur(...)`).
-- **Paleta de Colores:**
-  - Fondo primario: `--color-bg-primary: #07090e`
-  - Superficie midnight: `--color-bg-surface: #101522`
-  - Cian Neón (Onda Reverb): `--color-neon-cyan: #00f0ff`
-  - Magenta Neón Eléctrico: `--color-neon-magenta: #ff2a85`
-  - Oro Solar Tropical: `--color-solar-gold: #ffb703`
-  - Verde Selva: `--color-tropical-green: #06d6a0`
+> [!IMPORTANT]
+> **Colores:** lee siempre [`PALETA.md`](PALETA.md) antes de tocar colores. Es la fuente oficial de la paleta (portada de *Sancocho Pa' Ratas* + logos), sus usos y reglas de contraste. Usa solo los tokens de `src/css/variables.css` (`--color-sancocho`, `--color-cian`, `--color-llama`, `--color-hueso`, `rgba(var(--rgb-…), α)`); no escribas hex sueltos. Si cambias la paleta, actualiza `PALETA.md` y `variables.css` juntos.
+
+- **Filosofía:** Psicodelia tropical sobre fondo vino casi negro, con los rojos y el hueso de la portada, el cian del logo para la interacción y el oro como detalle, y Glassmorphism (`backdrop-filter: blur(...)`).
 - **Tipografías:**
   - Títulos y Acentos: `'Syne', sans-serif` (Google Fonts, weights: 700, 800, 900)
   - Textos y UI: `'Plus Jakarta Sans', sans-serif` (Google Fonts, weights: 400, 500, 600, 700, 800)
@@ -79,21 +70,22 @@ c:/Projects/CR_Site/
 ├── package.json                 # Dependencias y scripts Vite
 ├── vite.config.js               # Configuración Vite (puerto 3000, build a dist/)
 ├── AGENTS.md                    # Memoria persistente del proyecto (este archivo)
+├── PALETA.md                    # Paleta oficial de colores (consultar siempre)
+├── brand/                       # Logos originales en alta resolución (fuente, no se publican)
 ├── .gitignore                   # Exclusión de node_modules, dist, logs
 ├── public/
 │   ├── favicon.svg              # Isotipo vectorial de Cumbia Reverb
-│   ├── audio/
-│   │   └── cumbia_reverb_preview.wav  # Pista de audio sintetizada real
+│   ├── audio/                   # MP3 reales de la banda (vacío; activa el reproductor)
 │   ├── images/
-│   │   ├── hero/cumbia_hero_banner.jpg
-│   │   ├── covers/official_avatar.jpg, official_cover.jpg
-│   │   ├── members/celta.jpg, javier.jpg, matias.jpg, miguel.jpg, ruben.jpg
-│   │   └── merch/tshirt.jpg, vinyl.jpg
-│   └── docs/
+│   │   ├── logo/                # logo-full (personaje + letras) y logo-letras, .webp/.png transparentes
+│   │   ├── og-image.jpg         # Imagen para compartir en redes (1200×630)
+│   │   ├── covers/official_avatar.jpg (avatar), official_cover.jpg (portada del disco)
+│   │   └── placeholder.svg      # Foto pendiente (integrantes)
+│   └── docs/                    # PDFs del EPK y rider (pendientes)
 └── src/
     ├── css/
     │   ├── reset.css            # Normalización y custom scrollbars
-    │   ├── variables.css        # Sistema de tokens y colores
+    │   ├── variables.css        # Tokens de diseño (colores según PALETA.md)
     │   ├── components.css       # Tarjetas, botones luminosos, player flotante, modales
     │   └── main.css             # Layouts responsivos y breakpoints
     ├── data/
@@ -102,7 +94,7 @@ c:/Projects/CR_Site/
     │   ├── videosData.js        # Hub de YouTube, clips y shorts
     │   ├── tourData.js          # Fechas de gira y estado de boletos
     │   ├── merchData.js         # Productos de merchandising y FAQ
-    │   └── riderData.js         # Input list (14 CH), Stage Plot y monitoreo
+    │   └── riderData.js         # Rider técnico y stage plot (pendiente)
     ├── components/
     │   ├── Navbar.js            # Menú superior fijo con glassmorphism y drawer móvil
     │   ├── Hero.js              # Canvas interactivo con osciloscopio de ondas sonoras

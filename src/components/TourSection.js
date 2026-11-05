@@ -13,7 +13,7 @@ export function renderTourSection() {
           <span class="section-tag">CALENDARIO EN VIVO</span>
           <h2 class="section-title">
             <span>Gira &</span>
-            <span class="text-gradient-electric">Próximos Conciertos</span>
+            <span class="text-gradient-fuego">Próximos Conciertos</span>
           </h2>
           <p class="section-subtitle">
             ${tourData.description}
@@ -21,6 +21,9 @@ export function renderTourSection() {
         </div>
 
         <div class="tour-list">
+          ${tourData.upcomingShows.length === 0 ? `
+            <p class="section-subtitle">Próximas fechas muy pronto. ¿Nos quieres en tu ciudad? Escríbenos.</p>
+          ` : ''}
           ${tourData.upcomingShows.map(show => `
             <div class="tour-card">
               <div class="tour-date-box">
@@ -34,16 +37,18 @@ export function renderTourSection() {
 
               <div class="tour-status-box">
                 <span class="badge ${
-                  show.statusType === 'danger' ? 'badge-magenta' : 
-                  show.statusType === 'warning' ? 'badge-gold' : 
-                  'badge-green'
+                  show.statusType === 'danger' ? 'badge-sancocho' : 
+                  show.statusType === 'warning' ? 'badge-hueso' : 
+                  show.statusType === 'neutral' ? 'badge-llama' :
+                  'badge-success'
                 }">
                   ${show.status}
                 </span>
 
-                <button class="btn ${show.statusType === 'danger' ? 'btn-secondary' : 'btn-primary'} btn-sm" data-book-tour="${show.id}">
+                ${show.ticketUrl ? `
+                <a href="${show.ticketUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                   <span>${show.ticketText}</span>
-                </button>
+                </a>` : ''}
               </div>
             </div>
           `).join('')}
@@ -70,7 +75,4 @@ export function initTourSection() {
   };
 
   document.getElementById('tourCtaBookingBtn')?.addEventListener('click', triggerModal);
-  document.querySelectorAll('[data-book-tour]').forEach(btn => {
-    btn.addEventListener('click', triggerModal);
-  });
 }

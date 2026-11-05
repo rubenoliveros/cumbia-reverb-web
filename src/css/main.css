@@ -45,7 +45,7 @@
 
 .feature-card:hover {
   transform: translateY(-4px);
-  border-color: var(--color-border-glow-cyan);
+  border-color: var(--color-border-glow-cian);
 }
 
 .feature-card-icon {
@@ -66,11 +66,11 @@
 
 .feature-card-cta {
   font-weight: 700;
-  color: var(--color-neon-cyan);
+  color: var(--color-cian);
 }
 
 .mobile-drawer-link.active {
-  color: var(--color-neon-cyan);
+  color: var(--color-cian);
 }
 
 /* Background Ambient Glow Accents */
@@ -86,19 +86,19 @@
 }
 
 .ambient-cyan {
-  background: var(--color-neon-cyan);
+  background: var(--color-cian);
   top: -100px;
   left: -100px;
 }
 
 .ambient-magenta {
-  background: var(--color-neon-magenta);
+  background: var(--color-sancocho);
   bottom: -100px;
   right: -100px;
 }
 
 .ambient-gold {
-  background: var(--color-solar-gold);
+  background: var(--color-hueso);
   top: 30%;
   right: 10%;
 }
@@ -201,6 +201,15 @@
 
 /* Small Mobiles (max-width: 480px) */
 @media (max-width: 480px) {
+  .nav-brand-logo {
+    height: 34px;
+  }
+
+  #navBookingBtn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
   .hero-actions {
     flex-direction: column;
     width: 100%;

@@ -13,7 +13,7 @@ export function renderVideosSection() {
           <span class="section-tag">CANAL DE YOUTUBE OFICIAL</span>
           <h2 class="section-title">
             <span>Sesiones en Vivo &</span>
-            <span class="text-gradient-electric">Videoclips</span>
+            <span class="text-gradient-fuego">Videoclips</span>
           </h2>
           <p class="section-subtitle">
             Vive la energía de Cumbia Reverb en tarima y en el estudio. Suscríbete a nuestro canal oficial para no perderte ningún estreno ni sesión en directo.
@@ -45,7 +45,7 @@ export function renderVideosSection() {
           <div class="video-featured-inner">
             <img src="${videosData.featured.thumbnail}" alt="${videosData.featured.title}" class="video-featured-poster" />
             <div class="video-featured-overlay">
-              <span class="badge badge-magenta" style="margin-bottom: 12px;">${videosData.featured.category} • ${videosData.featured.duration}</span>
+              <span class="badge badge-sancocho" style="margin-bottom: 12px;">${videosData.featured.category} • ${videosData.featured.duration}</span>
               <h3 class="video-featured-title">${videosData.featured.title}</h3>
               <p style="font-size: 0.95rem; color: var(--color-text-subtle); max-width: 700px; margin-bottom: 20px;">
                 ${videosData.featured.description}
@@ -69,12 +69,12 @@ export function renderVideosSection() {
             <a href="${clip.url}" target="_blank" rel="noopener noreferrer" class="video-clip-card">
               <div class="video-clip-thumb">
                 <img src="${clip.thumbnail}" alt="${clip.title}" loading="lazy" />
-                <span class="badge badge-cyan" style="position: absolute; bottom: 8px; right: 8px; font-size: 0.75rem;">
+                <span class="badge badge-llama" style="position: absolute; bottom: 8px; right: 8px; font-size: 0.75rem;">
                   ${clip.duration}
                 </span>
               </div>
               <div class="video-clip-info">
-                <span style="font-size: 0.75rem; color: var(--color-neon-magenta); font-weight: 700; text-transform: uppercase;">${clip.tag}</span>
+                <span style="font-size: 0.75rem; color: var(--color-sancocho); font-weight: 700; text-transform: uppercase;">${clip.tag}</span>
                 <h4 class="video-clip-title">${clip.title}</h4>
                 <span style="font-size: 0.8rem; color: var(--color-text-dim);">${clip.views}</span>
               </div>
@@ -88,12 +88,12 @@ export function renderVideosSection() {
           ${videosData.shorts.map(s => `
             <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="short-card">
               <div>
-                <span class="badge badge-gold" style="margin-bottom: 12px; font-size: 0.72rem;">${s.instrument}</span>
+                <span class="badge badge-hueso" style="margin-bottom: 12px; font-size: 0.72rem;">${s.instrument}</span>
                 <h4 style="font-size: 1.05rem; font-weight: 800; line-height: 1.35; color: var(--color-text-main); margin-bottom: 8px;">${s.title}</h4>
               </div>
               <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--color-border-subtle); padding-top: 12px;">
                 <span style="font-size: 0.82rem; color: var(--color-text-muted);">${s.views}</span>
-                <span style="color: var(--color-neon-magenta); font-weight: 800; font-size: 0.85rem;">Ver Short ↗</span>
+                <span style="color: var(--color-sancocho); font-weight: 800; font-size: 0.85rem;">Ver Short ↗</span>
               </div>
             </a>
           `).join('')}

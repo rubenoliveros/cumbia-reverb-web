@@ -1,5 +1,5 @@
 // src/components/Footer.js
-// Pie de página oficial con enlaces a redes, newsletter y créditos
+// Pie de página oficial con enlaces a redes y créditos
 
 import { bandData } from '../data/bandData.js';
 import { featureRoutes } from '../routes.js';
@@ -18,10 +18,10 @@ export function renderFooter() {
         <!-- Col 1: Brand Info -->
         <div>
           <h3 class="footer-brand-title">
-            <span class="text-gradient-reverb">${bandData.name}</span>
+            <img src="${bandData.images.logoText}" alt="${bandData.name}" class="footer-brand-logo" width="720" height="292" loading="lazy" />
           </h3>
           <p class="footer-brand-bio">
-            ${bandData.tagline}. Cumbia psicodélica, surf reverb y chicha moderna conectando los corazones de Colombia, Argentina y Venezuela.
+            ${bandData.tagline}<br>${bandData.location}
           </p>
 
           <div class="footer-social-links">
@@ -31,11 +31,12 @@ export function renderFooter() {
               </svg>
             </a>
 
+            ${bandData.social.youtube ? `
             <a href="${bandData.social.youtube}" target="_blank" rel="noopener noreferrer" class="footer-social-icon" title="YouTube">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
-            </a>
+            </a>` : ''}
 
             <a href="${bandData.social.instagram}" target="_blank" rel="noopener noreferrer" class="footer-social-icon" title="Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -70,20 +71,6 @@ export function renderFooter() {
           </div>
         </div>
 
-        <!-- Col 4: Newsletter -->
-        <div>
-          <h4 class="footer-heading">Club de Fans / Newsletter</h4>
-          <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 14px; line-height: 1.5;">
-            Entérate antes que nadie de nuevas fechas de conciertos, lanzamientos y códigos de descuento para merchandising.
-          </p>
-
-          <form id="newsletterForm" style="display: flex; gap: 8px;">
-            <input type="email" id="newsletterEmail" placeholder="tu@correo.com" class="form-control" style="font-size: 0.88rem; padding: 10px 14px;" required />
-            <button type="submit" class="btn btn-primary btn-sm">
-              <span>Unirme</span>
-            </button>
-          </form>
-        </div>
       </div>
 
       <!-- Bottom Bar -->
@@ -92,7 +79,7 @@ export function renderFooter() {
           © ${currentYear} ${bandData.name}. Todos los derechos reservados.
         </div>
         <div>
-          Sitio Oficial en <strong style="color: var(--color-neon-cyan);">${bandData.officialUrl.replace('https://', '')}</strong>
+          Sitio Oficial en <strong style="color: var(--color-cian);">${bandData.officialUrl.replace('https://', '')}</strong>
         </div>
       </div>
     </footer>
@@ -103,18 +90,5 @@ export function initFooter() {
   document.getElementById('footerBookingLink')?.addEventListener('click', (e) => {
     e.preventDefault();
     document.getElementById('bookingModal')?.classList.add('open');
-  });
-
-  const form = document.getElementById('newsletterForm');
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('newsletterEmail')?.value;
-    const toast = document.getElementById('globalToast');
-    if (toast) {
-      toast.textContent = `⚡ ¡Bienvenido a la tribu de Cumbia Reverb! Registrado: ${email}`;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 4000);
-    }
-    form.reset();
   });
 }

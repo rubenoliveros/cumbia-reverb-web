@@ -17,11 +17,8 @@
 
 import { renderHomePage, initHomePage } from './pages/HomePage.js';
 import { renderMusicSection, initMusicSection } from './components/MusicSection.js';
-import { renderVideosSection } from './components/VideosSection.js';
 import { renderMembersSection } from './components/MembersSection.js';
 import { renderTourSection, initTourSection } from './components/TourSection.js';
-import { renderMerchSection, initMerchSection } from './components/MerchSection.js';
-import { renderEpkSection, initEpkSection } from './components/EpkSection.js';
 
 export const homeRoute = {
   path: '/',
@@ -37,28 +34,18 @@ export const featureRoutes = [
     title: 'Música',
     menuLabel: 'Música & Discografía',
     icon: '🎵',
-    description: 'Escucha nuestros sencillos, lee las letras y síguenos en Spotify.',
+    description: 'Escucha nuestra música y síguenos en Spotify.',
     group: 'main',
     legacyHash: 'musica',
     render: renderMusicSection,
     init: initMusicSection
   },
   {
-    path: '/videos',
-    title: 'Videos',
-    menuLabel: 'Videos & YouTube',
-    icon: '📺',
-    description: 'Sesiones en vivo, clips y shorts desde nuestro canal oficial.',
-    group: 'main',
-    legacyHash: 'videos',
-    render: renderVideosSection
-  },
-  {
     path: '/banda',
     title: 'Banda',
     menuLabel: 'Integrantes',
     icon: '⚡',
-    description: 'Conoce a los cinco músicos de Colombia, Argentina y Venezuela.',
+    description: 'Conoce a los cuatro músicos de Colombia, Argentina y Venezuela.',
     group: 'main',
     legacyHash: 'integrantes',
     render: renderMembersSection
@@ -73,29 +60,10 @@ export const featureRoutes = [
     legacyHash: 'gira',
     render: renderTourSection,
     init: initTourSection
-  },
-  {
-    path: '/tienda',
-    title: 'Tienda',
-    menuLabel: 'Tienda Oficial',
-    icon: '👕',
-    description: 'Camisetas, vinilos y más, con pedido directo por WhatsApp.',
-    group: 'main',
-    legacyHash: 'tienda',
-    render: renderMerchSection,
-    init: initMerchSection
-  },
-  {
-    path: '/epk',
-    title: 'EPK / Rider',
-    menuLabel: 'EPK & Rider Técnico',
-    icon: '📋',
-    description: 'Stage plot, input list, monitoreo y descargas para prensa y festivales.',
-    group: 'pro',
-    legacyHash: 'epk',
-    render: renderEpkSection,
-    init: initEpkSection
   }
+  // Fase 2 (ocultas hasta tener contenido real): '/videos' (VideosSection.js),
+  // '/tienda' (MerchSection.js) y '/epk' (EpkSection.js). Para activarlas, vuelve a
+  // importar su componente y agrega su entrada aquí.
 ];
 
 export const routes = [homeRoute, ...featureRoutes];

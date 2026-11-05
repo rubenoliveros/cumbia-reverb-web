@@ -13,10 +13,10 @@ export function renderMembersSection() {
           <span class="section-tag">ALINEACIÓN OFICIAL</span>
           <h2 class="section-title">
             <span>Los Músicos de</span>
-            <span class="text-gradient-reverb">Cumbia Reverb</span>
+            <span class="text-reverb">Cumbia Reverb</span>
           </h2>
           <p class="section-subtitle">
-            Cinco identidades, tres naciones y un solo pulso hipnótico. Conoce a los creadores de la frecuencia surf cumbiera.
+            Cuatro músicos de Colombia, Argentina y Venezuela, desde ${bandData.location}.
           </p>
         </div>
 
@@ -37,15 +37,9 @@ export function renderMembersSection() {
                 <h3 class="member-name">${member.name}</h3>
                 <p class="member-role">${member.role}</p>
 
-                <p class="member-quote">"${member.quote}"</p>
-
-                <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.55; margin-bottom: 16px;">
+                <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.55;">
                   ${member.bio}
                 </p>
-
-                <div class="member-gear">
-                  <strong>Equipamiento:</strong> ${member.gear}
-                </div>
               </div>
             </article>
           `).join('')}

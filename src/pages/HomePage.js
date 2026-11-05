@@ -13,8 +13,8 @@ export function renderHomePage() {
       <div class="container">
         <div class="section-header">
           <span class="section-tag">Explora</span>
-          <h2 class="section-title">Bienvenido al <span class="text-gradient-reverb">Universo Reverb</span></h2>
-          <p class="section-subtitle">Música, videos, fechas, tienda y todo lo que necesitas para llevar la banda a tu tarima.</p>
+          <h2 class="section-title">Bienvenido al <span class="text-reverb">Universo Reverb</span></h2>
+          <p class="section-subtitle">Nuestra música, la banda y las próximas fechas.</p>
         </div>
 
         <div class="feature-grid">

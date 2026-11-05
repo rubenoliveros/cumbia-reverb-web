@@ -1,11 +1,13 @@
 // src/components/AudioPlayer.js
-// Reproductor de audio flotante persistente con visualizador de ecualizador y control continuo
+// Reproductor de audio flotante persistente con visualizador de ecualizador y control continuo.
+// Solo aparece si alguna pista de musicData tiene `audioPreview` (MP3 real en /public/audio).
 
-import { musicData } from '../data/musicData.js';
+import { playableTracks } from '../data/musicData.js';
 import { bandData } from '../data/bandData.js';
 
 export function renderAudioPlayer() {
-  const currentTrack = musicData.tracks[0];
+  if (playableTracks.length === 0) return '';
+  const currentTrack = playableTracks[0];
 
   return `
     <div class="audio-player-bar" id="audioPlayerBar">
@@ -55,7 +57,7 @@ export function renderAudioPlayer() {
             <div class="player-progress-bar" id="playerProgressBar">
               <div class="player-progress-fill" id="playerProgressFill"></div>
             </div>
-            <span class="player-time" id="playerDuration">0:10</span>
+            <span class="player-time" id="playerDuration">0:00</span>
           </div>
         </div>
 
@@ -75,6 +77,7 @@ export function renderAudioPlayer() {
 
 export function initAudioPlayer() {
   const audio = document.getElementById('cumbiaAudioElement');
+  if (!audio) return;
   const playBtn = document.getElementById('playerPlayBtn');
   const playIcon = document.getElementById('playerPlayIcon');
   const prevBtn = document.getElementById('playerPrevBtn');
@@ -108,8 +111,8 @@ export function initAudioPlayer() {
   }
 
   function loadTrack(index) {
-    currentTrackIndex = (index + musicData.tracks.length) % musicData.tracks.length;
-    const track = musicData.tracks[currentTrackIndex];
+    currentTrackIndex = (index + playableTracks.length) % playableTracks.length;
+    const track = playableTracks[currentTrackIndex];
     audio.src = track.audioPreview;
     titleEl.textContent = track.title;
     thumb.src = track.cover;
@@ -119,8 +122,9 @@ export function initAudioPlayer() {
 
   // Highlight card in music section if present
   function highlightTrackCard() {
-    document.querySelectorAll('.track-card').forEach((card, idx) => {
-      card.classList.toggle('is-playing', idx === currentTrackIndex);
+    const playingId = playableTracks[currentTrackIndex].id;
+    document.querySelectorAll('.track-row').forEach(row => {
+      row.classList.toggle('is-playing', row.querySelector('[data-play-track]')?.getAttribute('data-play-track') === playingId);
     });
   }
 
@@ -188,8 +192,8 @@ export function initAudioPlayer() {
 
   // Global API exposed to buttons on track cards
   window.cumbiaPlayer = {
-    playTrack: (index) => {
-      loadTrack(index);
+    playTrack: (trackId) => {
+      loadTrack(Math.max(0, playableTracks.findIndex(t => t.id === trackId)));
       play();
     },
     togglePlay,

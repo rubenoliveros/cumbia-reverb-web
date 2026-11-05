@@ -9,8 +9,7 @@ export function renderNavbar() {
     <nav class="navbar" id="mainNavbar">
       <div class="nav-container">
         <a href="#/" class="nav-brand" id="navBrandLink" data-route-link="/">
-          <img src="${bandData.images.favicon}" alt="Cumbia Reverb Logo" class="nav-brand-logo" width="38" height="38" />
-          <span>${bandData.name}</span>
+          <img src="${bandData.images.logoText}" alt="${bandData.name}" class="nav-brand-logo" width="720" height="292" />
         </a>
 
         <div class="nav-menu" id="navDesktopMenu">
