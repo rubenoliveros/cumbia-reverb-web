@@ -67,7 +67,6 @@ export function renderFooter() {
           <div class="footer-links-list">
             ${footerLinks('pro')}
             <a href="#booking" id="footerBookingLink" class="footer-link">Cotizar Concierto</a>
-            <a href="mailto:${bandData.social.email}" class="footer-link">Contacto Directo</a>
           </div>
         </div>
 

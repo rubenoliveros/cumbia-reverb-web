@@ -69,6 +69,65 @@
   color: var(--color-cian);
 }
 
+/* Contact page: one card per topic (booking, prensa…) */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+}
+
+.contact-card-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.contact-card-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.contact-card-person {
+  font-size: 0.95rem;
+  color: var(--color-text-subtle);
+  flex: 1;
+}
+
+.contact-card-person strong {
+  color: var(--color-sancocho);
+}
+
+.contact-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.contact-card-actions .btn {
+  justify-content: center;
+}
+
+.contact-social {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.contact-social a {
+  color: var(--color-cian);
+  font-weight: 700;
+}
+
 .mobile-drawer-link.active {
   color: var(--color-cian);
 }

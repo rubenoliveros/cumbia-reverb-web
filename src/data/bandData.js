@@ -24,6 +24,29 @@ export const bandData = {
     whatsappNumber: "573555555555",
     whatsappBookingText: "¡Hola Cumbia Reverb! Me gustaría cotizar un concierto / presentación en vivo con la banda."
   },
+  // Página /contacto: una tarjeta por tema (modelo bigthief.net/contact).
+  // Por ahora Matías responde todo; si otra persona asume un tema, cambia su contacto aquí.
+  contacts: [
+    {
+      id: "booking",
+      icon: "🎟️",
+      title: "Booking y conciertos",
+      description: "Festivales, salas de conciertos, eventos culturales y de empresa.",
+      person: "Matias",
+      email: "booking@cumbiareverb.com",
+      whatsappText: "¡Hola Cumbia Reverb! Me gustaría cotizar un concierto / presentación en vivo con la banda.",
+      bookingForm: true
+    },
+    {
+      id: "prensa",
+      icon: "📰",
+      title: "Prensa y medios",
+      description: "Entrevistas, reseñas, radio y sesiones en vivo.",
+      person: "Matias",
+      email: "booking@cumbiareverb.com",
+      whatsappText: "¡Hola Cumbia Reverb! Les escribo de un medio y me gustaría hablar con la banda."
+    }
+  ],
   images: {
     heroBanner: null, // PENDIENTE: foto real de la banda (curar desde el Drive)
     logo: "/images/logo/logo-full.webp",       // logo completo (personaje + letras), fondo transparente

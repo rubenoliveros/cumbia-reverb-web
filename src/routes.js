@@ -19,6 +19,7 @@ import { renderHomePage, initHomePage } from './pages/HomePage.js';
 import { renderMusicSection, initMusicSection } from './components/MusicSection.js';
 import { renderMembersSection } from './components/MembersSection.js';
 import { renderTourSection, initTourSection } from './components/TourSection.js';
+import { renderContactSection, initContactSection } from './components/ContactSection.js';
 
 export const homeRoute = {
   path: '/',
@@ -60,6 +61,17 @@ export const featureRoutes = [
     legacyHash: 'gira',
     render: renderTourSection,
     init: initTourSection
+  },
+  {
+    path: '/contacto',
+    title: 'Contacto',
+    menuLabel: 'Contacto & Booking',
+    icon: '✉️',
+    description: 'Booking, prensa y medios: escríbele directo a quien lleva cada tema.',
+    group: 'pro',
+    legacyHash: 'contacto',
+    render: renderContactSection,
+    init: initContactSection
   }
   // Fase 2 (ocultas hasta tener contenido real): '/videos' (VideosSection.js),
   // '/tienda' (MerchSection.js) y '/epk' (EpkSection.js). Para activarlas, vuelve a

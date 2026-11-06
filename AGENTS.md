@@ -105,6 +105,7 @@ c:/Projects/CR_Site/
     │   ├── TourSection.js       # Conciertos y llamadas a booking
     │   ├── MerchSection.js      # Catálogo con generador de pedidos por WhatsApp
     │   ├── EpkSection.js        # Pestañas de Rider Técnico, Stage Plot y descargas
+    │   ├── ContactSection.js    # Contacto por tema (booking, prensa) con WhatsApp y correo
     │   ├── BookingModal.js      # Formulario de cotización de fechas
     │   ├── LyricsModal.js       # Modal para leer letras completas de los temas
     │   └── Footer.js            # Redes, newsletter y pie de página
