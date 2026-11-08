@@ -21,6 +21,7 @@ export function renderAlbumPage(album) {
           <h1 class="album-hero-title">${album.title}</h1>
           <p class="album-hero-meta">
             <span class="badge badge-cromo">${album.type}</span>
+            ${album.year ? `<span class="disco-year">${album.year}</span>` : ''}
             <span>${album.tracks.length} temas</span>
             <span aria-hidden="true">·</span>
             <span>${album.minutes} min</span>

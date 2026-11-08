@@ -14,13 +14,13 @@ export function renderDiscosPage() {
         </header>
 
         <ol class="discos-list">
-          ${albums.map((album, i) => `
+          ${albums.map(album => `
             <li class="disco-feature">
               <a href="#${albumPath(album)}" class="disco-feature-cover-link" aria-label="Ver el disco ${album.title}">
                 <img src="${album.cover}" alt="Portada de ${album.title}" class="disco-feature-cover" width="480" height="480" loading="lazy" />
               </a>
               <div>
-                <span class="disco-feature-num">${String(albums.length - i).padStart(2, '0')}</span>
+                ${album.year ? `<span class="disco-year">${album.year}</span>` : ''}
                 <h2 class="disco-feature-title"><a href="#${albumPath(album)}">${album.title}</a></h2>
                 <p class="album-hero-meta">
                   <span class="badge badge-cromo">${album.type}</span>

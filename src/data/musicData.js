@@ -1,9 +1,11 @@
 // src/data/musicData.js
 // Discografía de Cumbia Reverb (datos tomados de Spotify).
 //
-// AGREGAR UN DISCO: añade un objeto a `albums` con los mismos campos. El orden del
-// arreglo es el orden del menú "Discos"; el primero se trata como el disco más reciente
-// (botón del hero, adelanto en la Home). Cada disco tiene su página en #/discos/<slug>.
+// AGREGAR UN DISCO: añade un objeto a `albums` con los mismos campos, en cualquier
+// posición. Los discos se ordenan solos por `releaseDate` (el más nuevo primero) en el
+// menú "Discos", la discografía y la Home. `releaseDate` sale de Spotify (AAAA-MM-DD);
+// si falta, el disco va al final y no muestra año. Cada disco tiene su página en
+// #/discos/<slug>.
 //
 // Campos opcionales por pista (se muestran solo si existen):
 //   audioPreview  ruta a un MP3 real en /public/audio (activa el reproductor persistente)
@@ -27,6 +29,7 @@ export const albums = [
     slug: "sancocho-pa-ratas",
     title: "Sancocho Pa' Ratas",
     type: "Álbum",
+    releaseDate: "2025-09-25", // Spotify: 25 de septiembre de 2025
     cover: SANCOCHO_COVER,
     spotifyUrl: "https://open.spotify.com/album/4QuTFlEuHSPElog6YmUZxb",
     embedUrl: "https://open.spotify.com/embed/album/4QuTFlEuHSPElog6YmUZxb?utm_source=generator&theme=0",
@@ -54,10 +57,17 @@ const toMinutes = tracks => Math.round(
     return sum + m * 60 + s;
   }, 0) / 60
 );
-albums.forEach(album => { album.minutes = toMinutes(album.tracks); });
+albums.forEach(album => {
+  album.minutes = toMinutes(album.tracks);
+  album.year = album.releaseDate ? album.releaseDate.slice(0, 4) : null;
+});
+
+// Más nuevo primero; los discos sin fecha van al final
+albums.sort((a, b) => (b.releaseDate ?? '').localeCompare(a.releaseDate ?? ''));
 
 export const latestAlbum = albums[0];
 export const albumPath = album => `/discos/${album.slug}`;
-export const albumMeta = album => `${album.type} · ${album.tracks.length} temas · ${album.minutes} min`;
+export const albumMeta = album =>
+  [album.year, album.type, `${album.tracks.length} temas`, `${album.minutes} min`].filter(Boolean).join(' · ');
 
 export const playableTracks = albums.flatMap(a => a.tracks).filter(t => t.audioPreview);

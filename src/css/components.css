@@ -2276,13 +2276,21 @@
   box-shadow: var(--shadow-card), 0 0 60px rgba(var(--rgb-sancocho), 0.25);
 }
 
-.disco-feature-num {
-  display: block;
+/* Año de lanzamiento: pequeño pero notable */
+.disco-year {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid rgba(var(--rgb-sancocho), 0.55);
+  border-radius: var(--radius-sm);
   font-family: var(--font-mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   color: var(--color-sancocho);
-  margin-bottom: 10px;
+}
+
+.disco-feature .disco-year {
+  margin-bottom: 14px;
 }
 
 .disco-feature-title {

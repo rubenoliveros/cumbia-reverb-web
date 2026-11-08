@@ -54,6 +54,7 @@ export function renderHomePage() {
           <h2 class="album-teaser-title">${album.title}</h2>
           <p class="album-hero-meta">
             <span class="badge badge-cromo">${album.type}</span>
+            ${album.year ? `<span class="disco-year">${album.year}</span>` : ''}
             <span>${album.tracks.length} temas</span>
             <span aria-hidden="true">·</span>
             <span>${album.minutes} min</span>
