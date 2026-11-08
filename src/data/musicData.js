@@ -7,6 +7,13 @@
 // si falta, el disco va al final y no muestra año. Cada disco tiene su página en
 // #/discos/<slug>.
 //
+// Campos opcionales por disco:
+//   upcoming  true = disco anunciado que aún no sale (placeholder). Va primero, muestra
+//             "Próximamente" y su página no tiene temas ni Spotify. Al salir, quita
+//             `upcoming` y completa título, portada, fecha, Spotify y temas.
+//   palette   paleta propia para la página del disco (ver src/css/paletas-disco.css)
+//   aliases / legacyHash  enlaces viejos que deben abrir este disco
+//
 // Campos opcionales por pista (se muestran solo si existen):
 //   audioPreview  ruta a un MP3 real en /public/audio (activa el reproductor persistente)
 //   lyrics        letra oficial entregada por la banda
@@ -26,10 +33,25 @@ export const spotifyArtistId = "2QDEorhtmjmhWrFEItrp4i";
 
 export const albums = [
   {
+    // PLACEHOLDER: EP nuevo en camino. Título, portada, fecha y temas por confirmar.
+    slug: "nuevo-ep",
+    title: "Nuevo EP",
+    type: "EP",
+    upcoming: true,
+    releaseDate: null,
+    cover: "/images/covers/ep-proximamente.svg",
+    spotifyUrl: null,
+    embedUrl: null,
+    tracks: []
+  },
+  {
     slug: "sancocho-pa-ratas",
     title: "Sancocho Pa' Ratas",
     type: "Álbum",
     releaseDate: "2025-09-25", // Spotify: 25 de septiembre de 2025
+    palette: "sancocho",       // colores de su portada en su página
+    aliases: ["/sancocho", "/musica"],
+    legacyHash: "musica",
     cover: SANCOCHO_COVER,
     spotifyUrl: "https://open.spotify.com/album/4QuTFlEuHSPElog6YmUZxb",
     embedUrl: "https://open.spotify.com/embed/album/4QuTFlEuHSPElog6YmUZxb?utm_source=generator&theme=0",
@@ -62,12 +84,19 @@ albums.forEach(album => {
   album.year = album.releaseDate ? album.releaseDate.slice(0, 4) : null;
 });
 
-// Más nuevo primero; los discos sin fecha van al final
-albums.sort((a, b) => (b.releaseDate ?? '').localeCompare(a.releaseDate ?? ''));
+// Próximos primero, luego del más nuevo al más viejo; los discos sin fecha van al final
+albums.sort((a, b) =>
+  Number(!!b.upcoming) - Number(!!a.upcoming) ||
+  (b.releaseDate ?? '').localeCompare(a.releaseDate ?? ''));
 
-export const latestAlbum = albums[0];
+// Último disco ya publicado: el que se promociona en la Home y el hero
+export const latestAlbum = albums.find(a => !a.upcoming);
 export const albumPath = album => `/discos/${album.slug}`;
-export const albumMeta = album =>
-  [album.year, album.type, `${album.tracks.length} temas`, `${album.minutes} min`].filter(Boolean).join(' · ');
+export const albumMeta = album => [
+  album.upcoming ? 'Próximamente' : album.year,
+  album.type,
+  album.tracks.length && `${album.tracks.length} temas`,
+  album.tracks.length && `${album.minutes} min`
+].filter(Boolean).join(' · ');
 
 export const playableTracks = albums.flatMap(a => a.tracks).filter(t => t.audioPreview);

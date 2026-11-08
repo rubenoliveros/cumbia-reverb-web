@@ -89,6 +89,7 @@ c:/Projects/CR_Site/
     ├── css/
     │   ├── reset.css            # Normalización y custom scrollbars
     │   ├── variables.css        # Tokens de diseño (colores según PALETA.md)
+    │   ├── paletas-disco.css    # Paleta propia de la página de cada disco (ej: sancocho)
     │   ├── components.css       # Tarjetas, botones luminosos, player flotante, modales
     │   ├── paletas-prueba.css   # TEMPORAL: paletas alternativas (?paleta=voltaje|funk|garaje), no oficiales
     │   └── main.css             # Layouts responsivos y breakpoints
@@ -136,7 +137,7 @@ Menú actual: **Banda · Discos · Gira · Contacto**. Una ruta con `children` s
 
 ### 💿 Agregar un disco
 
-Agrega un objeto al arreglo `albums` de `src/data/musicData.js` (mismos campos que *Sancocho Pa' Ratas*). Su página `#/discos/<slug>`, su entrada en el desplegable "Discos" y su tarjeta en `#/discos` se generan solas. El primer disco del arreglo es el que se promociona en la Home y en el hero.
+Agrega un objeto al arreglo `albums` de `src/data/musicData.js` (mismos campos que *Sancocho Pa' Ratas*). Su página `#/discos/<slug>`, su entrada en el desplegable "Discos" y su tarjeta en `#/discos` se generan solas. Los discos se ordenan solos por `releaseDate` (más nuevo primero); el último disco publicado es el que se promociona en la Home y el hero. Un disco anunciado que aún no sale lleva `upcoming: true` (hoy: el nuevo EP, placeholder sin título, fecha ni temas). Con `palette` la página del disco usa los colores de su portada (PALETA.md §6).
 
 > [!NOTE]
 > Las anclas antiguas de la versión one-page (`#musica`, `#tienda`, …) redirigen automáticamente a la nueva ruta mediante `legacyHash`.

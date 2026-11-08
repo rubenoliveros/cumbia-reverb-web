@@ -20,13 +20,16 @@ export function renderDiscosPage() {
                 <img src="${album.cover}" alt="Portada de ${album.title}" class="disco-feature-cover" width="480" height="480" loading="lazy" />
               </a>
               <div>
-                ${album.year ? `<span class="disco-year">${album.year}</span>` : ''}
+                ${album.upcoming
+                  ? '<span class="disco-year">Próximamente</span>'
+                  : album.year ? `<span class="disco-year">${album.year}</span>` : ''}
                 <h2 class="disco-feature-title"><a href="#${albumPath(album)}">${album.title}</a></h2>
                 <p class="album-hero-meta">
                   <span class="badge badge-cromo">${album.type}</span>
+                  ${album.tracks.length ? `
                   <span>${album.tracks.length} temas</span>
                   <span aria-hidden="true">·</span>
-                  <span>${album.minutes} min</span>
+                  <span>${album.minutes} min</span>` : '<span>Título y temas por confirmar</span>'}
                 </p>
                 <div class="album-hero-actions">
                   <a href="#${albumPath(album)}" class="btn btn-primary"><span>Ver el disco</span></a>

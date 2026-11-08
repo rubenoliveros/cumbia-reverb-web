@@ -34,14 +34,15 @@ export const homeRoute = {
   init: initHomePage
 };
 
-// Una página por disco (src/data/musicData.js). El primero hereda los enlaces viejos.
-const albumRoutes = albums.map((album, i) => ({
+// Una página por disco (src/data/musicData.js), con sus enlaces viejos si los tiene.
+const albumRoutes = albums.map(album => ({
   path: albumPath(album),
   title: album.title,
   menuLabel: album.title,
   image: album.cover,
   meta: albumMeta(album),
-  ...(i === 0 && { aliases: ['/sancocho', '/musica'], legacyHash: 'musica' }),
+  aliases: album.aliases,
+  legacyHash: album.legacyHash,
   render: () => renderAlbumPage(album),
   init: () => initAlbumPage(album)
 }));

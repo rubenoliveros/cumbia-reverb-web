@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="Portada pendiente del nuevo EP">
+  <!-- Placeholder del nuevo EP (colores de PALETA.md: Alto Voltaje). Reemplazar por la portada real. -->
+  <rect width="640" height="640" fill="#121214"/>
+  <rect x="28" y="28" width="584" height="584" rx="18" fill="none" stroke="#ffd000" stroke-width="3" stroke-dasharray="14 12" opacity="0.7"/>
+  <text x="320" y="330" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="210" fill="#f4f1ea" text-anchor="middle" letter-spacing="-6">EP</text>
+  <text x="320" y="410" font-family="Arial, sans-serif" font-weight="700" font-size="34" fill="#f2332c" text-anchor="middle" letter-spacing="10">PRÓXIMAMENTE</text>
+  <text x="320" y="560" font-family="Arial, sans-serif" font-size="22" fill="#7c776f" text-anchor="middle" letter-spacing="4">PORTADA POR CONFIRMAR</text>
+</svg>

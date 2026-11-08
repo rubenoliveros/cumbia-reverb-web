@@ -5,6 +5,7 @@
 
 import './css/reset.css';
 import './css/variables.css';
+import './css/paletas-disco.css';
 import './css/components.css';
 import './css/main.css';
 

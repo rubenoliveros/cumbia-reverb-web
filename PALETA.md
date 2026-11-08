@@ -88,3 +88,14 @@ Los logos (`public/images/logo/`, originales en `brand/`) se usan **con sus colo
    - Sobre fondo Rayo (amarillo) el texto va en negro de fondo (`--color-bg-primary`): 13.4:1. Nunca Hueso sobre amarillo.
 4. **No inviertas los papeles:** el amarillo es interacción, el rojo es identidad y llamada a la acción, y el cromo es un detalle puntual. Si un elemento nuevo no encaja en ninguno, usa Hueso.
 5. Si la banda publica una nueva portada o un nuevo logo, revisa que el rojo principal siga conviviendo con ella antes de tocar el CSS.
+
+## 6. Paletas por disco
+La página de cada disco puede usar los colores de su portada en vez de "Alto Voltaje". Se activa con `palette` en `src/data/musicData.js` y los tokens viven en `src/css/paletas-disco.css`. El navbar y el footer siempre usan la paleta oficial.
+
+| Paleta | Disco | Fondo · principal · interacción · detalle |
+|---|---|---|
+| `sancocho` | *Sancocho Pa' Ratas* | Vino Negro `#0f0605` · Rojo Sancocho `#e63a33` · Cian del logo `#00e5fd` · Oro Llama `#ebac11` |
+
+Son los colores medidos en la sección 1. Contrastes sobre `#0f0605`: texto Hueso 17:1, rojo 4.8:1, cian 13:1, oro 10:1, Hueso sobre Carmesí 5:1.
+
+Para un disco nuevo: mide su portada, agrega un bloque `[data-palette="<nombre>"]` en `paletas-disco.css` (con todos los tokens, incluidos los derivados) y documéntalo en esta tabla.
