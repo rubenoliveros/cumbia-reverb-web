@@ -68,65 +68,7 @@ Base: **Medellín, Colombia**. Banda de canciones originales.
 
 ## 📂 5. Estructura del Código
 
-```
-c:/Projects/CR_Site/
-├── index.html                   # Entry point con SEO semántico y Schema.org JSON-LD
-├── package.json                 # Dependencias y scripts Vite
-├── vite.config.js               # Configuración Vite (puerto 3000, build a dist/)
-├── AGENTS.md                    # Memoria persistente del proyecto (este archivo)
-├── PALETA.md                    # Paleta oficial de colores (consultar siempre)
-├── brand/                       # Logos originales en alta resolución (fuente, no se publican)
-├── .gitignore                   # Exclusión de node_modules, dist, logs
-├── public/
-│   ├── favicon.svg              # Isotipo vectorial de Cumbia Reverb
-│   ├── audio/                   # MP3 reales de la banda (vacío; activa el reproductor)
-│   ├── images/
-│   │   ├── logo/                # logo-full (personaje + letras) y logo-letras, .webp/.png transparentes
-│   │   ├── og-image.jpg         # Imagen para compartir en redes (1200×630)
-│   │   ├── covers/official_avatar.jpg (avatar), official_cover.jpg (portada del disco)
-│   │   └── placeholder.svg      # Foto pendiente (integrantes)
-│   └── docs/                    # PDFs del EPK y rider (pendientes)
-└── src/
-    ├── css/
-    │   ├── reset.css            # Normalización y custom scrollbars
-    │   ├── variables.css        # Tokens de diseño (colores según PALETA.md)
-    │   ├── paletas-disco.css    # Paleta propia de la página de cada disco (ej: sancocho)
-    │   ├── components.css       # Tarjetas, botones luminosos, player flotante, modales
-    │   ├── paletas-prueba.css   # TEMPORAL: paletas alternativas (?paleta=voltaje|funk|garaje), no oficiales
-    │   └── main.css             # Layouts responsivos y breakpoints
-    ├── data/
-    │   ├── bandData.js          # Datos y biografía de la banda e integrantes
-    │   ├── musicData.js         # Discografía: arreglo `albums` (un objeto por disco), letras y créditos
-    │   ├── videosData.js        # Hub de YouTube, clips y shorts
-    │   ├── tourData.js          # Fechas de gira y estado de boletos
-    │   ├── merchData.js         # Productos de merchandising y FAQ
-    │   └── riderData.js         # Rider técnico y stage plot (pendiente)
-    ├── components/
-    │   ├── Navbar.js            # Menú superior fijo con glassmorphism y drawer móvil
-    │   ├── Hero.js              # Canvas interactivo con osciloscopio de ondas sonoras
-    │   ├── AudioPlayer.js       # Reproductor persistente inferior (cumbiaPlayer API)
-    │   ├── TrackStrip.js        # Franja de temas del disco que acelera con el scroll (página del disco, 21st.dev)
-    │   ├── MusicSection.js      # "Escúchalo completo": embed de Spotify + lista de temas
-    │   ├── NextShow.js          # Próxima fecha + llamada a booking (home y disco)
-    │   ├── flags.js             # Banderas SVG (Windows no dibuja los emojis de bandera)
-    │   ├── VideosSection.js     # Sección YouTube con CTA de suscripción rápida
-    │   ├── MembersSection.js    # Fichas interactivas de músicos
-    │   ├── TourSection.js       # Conciertos y llamadas a booking
-    │   ├── MerchSection.js      # Catálogo con generador de pedidos por WhatsApp
-    │   ├── EpkSection.js        # Pestañas de Rider Técnico, Stage Plot y descargas
-    │   ├── ContactSection.js    # Contacto por tema (booking, prensa) con WhatsApp y correo
-    │   ├── BookingModal.js      # Formulario de cotización de fechas
-    │   ├── LyricsModal.js       # Modal para leer letras completas de los temas
-    │   └── Footer.js            # Redes, newsletter y pie de página
-    ├── pages/
-    │   ├── HomePage.js          # Inicio: hero, la banda en corto, adelanto del último disco, próximo show
-    │   ├── BandPage.js          # #/banda: presentación de Cumbia Reverb + integrantes
-    │   ├── DiscosPage.js        # #/discos: índice de la discografía
-    │   └── AlbumPage.js         # #/discos/<slug>: promoción de un disco (#/sancocho y #/musica abren Sancocho Pa' Ratas)
-    ├── routes.js                # Registro central de páginas (fuente única de navegación)
-    ├── router.js                # Enrutador hash (#/musica) sin recarga; el reproductor sigue sonando
-    └── main.js                  # Shell persistente (navbar, footer, player, modales) + arranque del router
-```
+Vite + JS vanilla, sin framework. Páginas en `src/pages/`, componentes `renderX()`/`initX()` en `src/components/`, datos de la banda en `src/data/`, registro de rutas en `src/routes.js` (fuente única de navegación) y shell persistente en `src/main.js` (el reproductor sigue sonando al navegar). `brand/` guarda los logos originales y no se publica; un MP3 real en `public/audio/` activa el reproductor.
 
 ### ➕ Agregar una nueva funcionalidad / página
 
@@ -145,25 +87,7 @@ Agrega un objeto al arreglo `albums` de `src/data/musicData.js` (mismos campos q
 
 ---
 
-## 🛠️ 6. Comandos y Flujo de Trabajo
-
-- **Iniciar servidor de desarrollo:**
-  ```powershell
-  npm run dev
-  # o npx vite --port 3000
-  ```
-- **Compilar para producción:**
-  ```powershell
-  npm run build
-  ```
-- **Previsualizar bundle de producción:**
-  ```powershell
-  npm run preview
-  ```
-
----
-
-## 🌐 7. Despliegue en Producción & Dominio (cumbiareverb.com)
+## 🌐 6. Despliegue en Producción & Dominio (cumbiareverb.com)
 
 - **Alojamiento Recomendado:** Netlify o Vercel conectado al repositorio de GitHub (`rubenoliveros/cumbia-reverb-web`).
 - **Comando de Build:** `npm run build`
