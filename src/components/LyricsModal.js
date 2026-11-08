@@ -7,7 +7,7 @@ export function renderLyricsModal() {
       <div class="modal-window">
         <button class="modal-close-btn" id="closeLyricsModalBtn" aria-label="Cerrar">&times;</button>
 
-        <span class="badge badge-llama" style="margin-bottom: 12px;">CUMBIA REVERB • LETRAS OFICIALES</span>
+        <span class="badge badge-cromo" style="margin-bottom: 12px;">CUMBIA REVERB • LETRAS OFICIALES</span>
         <h3 id="lyricsModalTitle" style="font-size: 1.6rem; font-weight: 900; margin-bottom: 20px;">Título de Canción</h3>
 
         <div id="lyricsModalBody" style="font-size: 1.05rem; line-height: 1.8; color: var(--color-text-main); margin-bottom: 24px; white-space: pre-wrap; font-family: var(--font-body); background: rgba(0, 0, 0, 0.25); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle);">

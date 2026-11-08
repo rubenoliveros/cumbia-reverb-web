@@ -1,7 +1,9 @@
 // src/components/Hero.js
 // Sección Hero con ondas de reverberación en canvas dinámico y llamadas a la acción
 
-import { bandData } from '../data/bandData.js';
+import { bandData, isPending } from '../data/bandData.js';
+import { latestAlbum, albumPath } from '../data/musicData.js';
+import { withFlags } from './flags.js';
 
 export function renderHero() {
   return `
@@ -13,18 +15,19 @@ export function renderHero() {
           <img src="${bandData.images.logo}" alt="${bandData.name}" class="hero-logo" width="900" height="895" fetchpriority="high" />
         </h1>
 
-        <p class="hero-tagline">${bandData.tagline}</p>
+        <p class="hero-tagline">${withFlags(bandData.tagline)}</p>
 
-        <p class="hero-description">
-          ${bandData.bio.summary}
-        </p>
+        <p class="hero-location">Desde ${bandData.location}</p>
+
+        ${isPending(bandData.bio.summary) ? '' : `
+        <p class="hero-description">${bandData.bio.summary}</p>`}
 
         <div class="hero-actions">
-          <a href="${bandData.social.spotify}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="heroPlayBtn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <a href="#${albumPath(latestAlbum)}" class="btn btn-primary" id="heroAlbumBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M8 5v14l11-7z"/>
             </svg>
-            <span>Escuchar en Spotify</span>
+            <span>Escucha ${latestAlbum.title}</span>
           </a>
 
           ${bandData.social.youtubeSubscribe ? `
@@ -54,7 +57,7 @@ export function initHeroCanvas() {
   let phase = 0;
   // Colores de la paleta (PALETA.md), leídos de los tokens CSS
   const tokens = getComputedStyle(document.documentElement);
-  const [cian, sancocho, hueso] = ['cian', 'sancocho', 'hueso'].map(n => tokens.getPropertyValue(`--rgb-${n}`).trim());
+  const [rayo, sancocho, hueso] = ['rayo', 'sancocho', 'hueso'].map(n => tokens.getPropertyValue(`--rgb-${n}`).trim());
 
   function resize() {
     width = canvas.width = window.innerWidth;
@@ -88,7 +91,7 @@ export function initHeroCanvas() {
     const centerY = height * 0.45;
 
     // Multiple reverberated wave lines
-    drawWave(centerY - 25, 45, 0.007, 0.03, `rgba(${cian}, 0.3)`, 2.5);
+    drawWave(centerY - 25, 45, 0.007, 0.03, `rgba(${rayo}, 0.3)`, 2.5);
     drawWave(centerY, 60, 0.009, 0.045, `rgba(${sancocho}, 0.35)`, 3.0);
     drawWave(centerY + 25, 50, 0.006, 0.025, `rgba(${hueso}, 0.22)`, 2.0);
 

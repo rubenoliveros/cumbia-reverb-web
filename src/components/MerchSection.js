@@ -30,7 +30,7 @@ export function renderMerchSection() {
               </div>
 
               <div class="merch-body">
-                <span class="badge badge-llama" style="margin-bottom: 8px;">${prod.tag}</span>
+                <span class="badge badge-cromo" style="margin-bottom: 8px;">${prod.tag}</span>
                 <h3 class="merch-title">${prod.name}</h3>
 
                 <div class="merch-prices">

@@ -69,7 +69,7 @@ export function renderVideosSection() {
             <a href="${clip.url}" target="_blank" rel="noopener noreferrer" class="video-clip-card">
               <div class="video-clip-thumb">
                 <img src="${clip.thumbnail}" alt="${clip.title}" loading="lazy" />
-                <span class="badge badge-llama" style="position: absolute; bottom: 8px; right: 8px; font-size: 0.75rem;">
+                <span class="badge badge-cromo" style="position: absolute; bottom: 8px; right: 8px; font-size: 0.75rem;">
                   ${clip.duration}
                 </span>
               </div>

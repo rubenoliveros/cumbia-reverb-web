@@ -10,7 +10,7 @@ export function renderBookingModal() {
         <button class="modal-close-btn" id="closeBookingModalBtn" aria-label="Cerrar">&times;</button>
 
         <div style="margin-bottom: 24px;">
-          <span class="badge badge-llama" style="margin-bottom: 8px;">BOOKING & CONTRATACIONES</span>
+          <span class="badge badge-cromo" style="margin-bottom: 8px;">BOOKING & CONTRATACIONES</span>
           <h3 style="font-size: 1.8rem; font-weight: 900; margin-bottom: 6px;">Cotizar Concierto</h3>
           <p style="font-size: 0.92rem; color: var(--color-text-muted);">
             Lleva a Cumbia Reverb a tu festival, sala de conciertos o evento. Completa los datos para enviar tu solicitud directamente.

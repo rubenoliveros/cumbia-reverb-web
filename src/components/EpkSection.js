@@ -7,7 +7,7 @@ import { bandData } from '../data/bandData.js';
 export function renderEpkSection() {
   return `
     <section class="section section-alt" id="epk">
-      <div class="ambient-glow ambient-cyan"></div>
+      <div class="ambient-glow ambient-rayo"></div>
 
       <div class="container" style="position: relative; z-index: 2;">
         <div class="section-header">
@@ -33,7 +33,7 @@ export function renderEpkSection() {
         <div class="epk-tab-pane active" id="tab-stageplot">
           <div class="stage-plot-container">
             <div class="stage-plot-header">
-              <span class="badge badge-llama" style="margin-bottom: 8px;">DISTRIBUCIÓN EN TARIMA (STAGE PLOT)</span>
+              <span class="badge badge-cromo" style="margin-bottom: 8px;">DISTRIBUCIÓN EN TARIMA (STAGE PLOT)</span>
               <h4 style="font-size: 1.15rem; font-weight: 800;">Cumbia Reverb — 5 Músicos en Escenario</h4>
               <p style="font-size: 0.82rem; color: var(--color-text-dim);">Visto desde la perspectiva de la audiencia hacia el escenario</p>
             </div>
@@ -46,7 +46,7 @@ export function renderEpkSection() {
                 <div class="pod-req">${riderData.stagePositions[1].requirements}</div>
               </div>
 
-              <div class="musician-pod" style="border-color: var(--color-cian);">
+              <div class="musician-pod" style="border-color: var(--color-rayo);">
                 <div class="pod-name">🥁 Ruben</div>
                 <div class="pod-role">Batería & Timbales</div>
                 <div class="pod-req">${riderData.stagePositions[0].requirements}</div>
@@ -96,11 +96,11 @@ export function renderEpkSection() {
               <tbody>
                 ${riderData.inputList.map(item => `
                   <tr>
-                    <td style="font-family: var(--font-mono); font-weight: 700; color: var(--color-cian);">${item.ch}</td>
+                    <td style="font-family: var(--font-mono); font-weight: 700; color: var(--color-rayo);">${item.ch}</td>
                     <td style="font-weight: 700;">${item.instrument}</td>
                     <td>${item.mic}</td>
                     <td style="color: var(--color-text-muted);">${item.stand}</td>
-                    <td><span class="badge ${item.phantom === 'Sí (+48V)' || item.phantom === 'Sí' ? 'badge-hueso' : 'badge-llama'}" style="font-size: 0.7rem;">${item.phantom}</span></td>
+                    <td><span class="badge ${item.phantom === 'Sí (+48V)' || item.phantom === 'Sí' ? 'badge-hueso' : 'badge-cromo'}" style="font-size: 0.7rem;">${item.phantom}</span></td>
                   </tr>
                 `).join('')}
               </tbody>
@@ -111,7 +111,7 @@ export function renderEpkSection() {
         <!-- Tab 3: Monitoring & Backline -->
         <div class="epk-tab-pane" id="tab-monitoring">
           <div class="card-glass" style="max-width: 960px; margin: 0 auto; padding: 36px;">
-            <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 12px; color: var(--color-cian);">Sistema de Monitoreo</h3>
+            <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 12px; color: var(--color-rayo);">Sistema de Monitoreo</h3>
             <p style="color: var(--color-text-subtle); line-height: 1.6; margin-bottom: 24px;">
               ${riderData.monitoring.system}
             </p>
@@ -122,7 +122,7 @@ export function renderEpkSection() {
                 <div style="background: rgba(var(--rgb-hueso), 0.03); border-radius: var(--radius-md); padding: 16px; border: 1px solid var(--color-border-subtle);">
                   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap;">
                     <span style="font-weight: 800; color: var(--color-hueso);">${m.mix}: ${m.user}</span>
-                    <span class="badge badge-llama">${m.type}</span>
+                    <span class="badge badge-cromo">${m.type}</span>
                   </div>
                   <div style="font-size: 0.85rem; color: var(--color-text-muted);">
                     <strong>Balance prioritario:</strong> ${m.balance}
@@ -140,7 +140,7 @@ export function renderEpkSection() {
               <div class="epk-download-card">
                 <div>
                   <h4 style="font-size: 1rem; font-weight: 800; margin-bottom: 4px;">${dl.title}</h4>
-                  <span style="font-size: 0.82rem; color: var(--color-cian); font-family: var(--font-mono);">${dl.size}</span>
+                  <span style="font-size: 0.82rem; color: var(--color-rayo); font-family: var(--font-mono);">${dl.size}</span>
                 </div>
                 <button class="btn btn-secondary btn-sm" data-download-epk="${dl.filename}">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

@@ -6,7 +6,7 @@ import { tourData } from '../data/tourData.js';
 export function renderTourSection() {
   return `
     <section class="section section-alt" id="gira">
-      <div class="ambient-glow ambient-cyan"></div>
+      <div class="ambient-glow ambient-rayo"></div>
 
       <div class="container" style="position: relative; z-index: 2;">
         <div class="section-header">
@@ -39,7 +39,7 @@ export function renderTourSection() {
                 <span class="badge ${
                   show.statusType === 'danger' ? 'badge-sancocho' : 
                   show.statusType === 'warning' ? 'badge-hueso' : 
-                  show.statusType === 'neutral' ? 'badge-llama' :
+                  show.statusType === 'neutral' ? 'badge-cromo' :
                   'badge-success'
                 }">
                   ${show.status}

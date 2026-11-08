@@ -3,6 +3,7 @@
 
 import { bandData } from '../data/bandData.js';
 import { featureRoutes } from '../routes.js';
+import { withFlags } from './flags.js';
 
 const footerLinks = (group) => featureRoutes
   .filter(r => r.group === group)
@@ -21,7 +22,7 @@ export function renderFooter() {
             <img src="${bandData.images.logoText}" alt="${bandData.name}" class="footer-brand-logo" width="720" height="292" loading="lazy" />
           </h3>
           <p class="footer-brand-bio">
-            ${bandData.tagline}<br>${bandData.location}
+            ${withFlags(bandData.tagline)}<br>${bandData.location}
           </p>
 
           <div class="footer-social-links">
@@ -78,7 +79,7 @@ export function renderFooter() {
           © ${currentYear} ${bandData.name}. Todos los derechos reservados.
         </div>
         <div>
-          Sitio Oficial en <strong style="color: var(--color-cian);">${bandData.officialUrl.replace('https://', '')}</strong>
+          Sitio Oficial en <strong style="color: var(--color-rayo);">${bandData.officialUrl.replace('https://', '')}</strong>
         </div>
       </div>
     </footer>

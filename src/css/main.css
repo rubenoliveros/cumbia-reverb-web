@@ -45,7 +45,7 @@
 
 .feature-card:hover {
   transform: translateY(-4px);
-  border-color: var(--color-border-glow-cian);
+  border-color: var(--color-border-glow-rayo);
 }
 
 .feature-card-icon {
@@ -66,7 +66,7 @@
 
 .feature-card-cta {
   font-weight: 700;
-  color: var(--color-cian);
+  color: var(--color-rayo);
 }
 
 /* Contact page: one card per topic (booking, prensa…) */
@@ -124,12 +124,12 @@
 }
 
 .contact-social a {
-  color: var(--color-cian);
+  color: var(--color-rayo);
   font-weight: 700;
 }
 
 .mobile-drawer-link.active {
-  color: var(--color-cian);
+  color: var(--color-rayo);
 }
 
 /* Background Ambient Glow Accents */
@@ -144,8 +144,8 @@
   z-index: 0;
 }
 
-.ambient-cyan {
-  background: var(--color-cian);
+.ambient-rayo {
+  background: var(--color-rayo);
   top: -100px;
   left: -100px;
 }

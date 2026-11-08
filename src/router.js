@@ -28,7 +28,7 @@ export function startRouter({ routes, outlet }) {
     if (redirectLegacyHash()) return;
 
     const path = currentPath();
-    const route = routes.find(r => r.path === path) ?? routes[0];
+    const route = routes.find(r => r.path === path || r.aliases?.includes(path)) ?? routes[0];
 
     cleanup?.();
     cleanup = null;
@@ -42,7 +42,8 @@ export function startRouter({ routes, outlet }) {
     document.title = isHome ? BASE_TITLE : `${route.title} | ${BAND_NAME}`;
 
     document.querySelectorAll('[data-route-link]').forEach(link => {
-      link.classList.toggle('active', link.getAttribute('data-route-link') === route.path);
+      const linkPath = link.getAttribute('data-route-link');
+      link.classList.toggle('active', route.path === linkPath || route.path.startsWith(`${linkPath}/`));
     });
 
     window.scrollTo(0, 0);

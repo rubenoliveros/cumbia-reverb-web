@@ -11,13 +11,18 @@
 //   icon        Emoji para menú móvil y tarjeta de inicio
 //   description Texto de la tarjeta en la página de inicio
 //   group       'main' (Navegación) o 'pro' (Área Profesional) en el footer
+//   children    Subpáginas: se muestran en un menú desplegable (ej: un disco por entrada)
+//   image, meta Miniatura y texto corto de cada subpágina en el desplegable
+//   aliases     Rutas viejas que abren esta misma página (ej: '/musica')
 //   legacyHash  Ancla antigua de la versión one-page (#musica) para no romper enlaces
 //   render      Función que retorna el HTML de la página
 //   init        Función opcional que conecta eventos; puede retornar una función de limpieza
 
 import { renderHomePage, initHomePage } from './pages/HomePage.js';
-import { renderMusicSection, initMusicSection } from './components/MusicSection.js';
-import { renderMembersSection } from './components/MembersSection.js';
+import { renderAlbumPage, initAlbumPage } from './pages/AlbumPage.js';
+import { renderDiscosPage } from './pages/DiscosPage.js';
+import { renderBandPage, initBandPage } from './pages/BandPage.js';
+import { albums, albumPath, albumMeta } from './data/musicData.js';
 import { renderTourSection, initTourSection } from './components/TourSection.js';
 import { renderContactSection, initContactSection } from './components/ContactSection.js';
 
@@ -29,27 +34,39 @@ export const homeRoute = {
   init: initHomePage
 };
 
+// Una página por disco (src/data/musicData.js). El primero hereda los enlaces viejos.
+const albumRoutes = albums.map((album, i) => ({
+  path: albumPath(album),
+  title: album.title,
+  menuLabel: album.title,
+  image: album.cover,
+  meta: albumMeta(album),
+  ...(i === 0 && { aliases: ['/sancocho', '/musica'], legacyHash: 'musica' }),
+  render: () => renderAlbumPage(album),
+  init: () => initAlbumPage(album)
+}));
+
 export const featureRoutes = [
-  {
-    path: '/musica',
-    title: 'Música',
-    menuLabel: 'Música & Discografía',
-    icon: '🎵',
-    description: 'Escucha nuestra música y síguenos en Spotify.',
-    group: 'main',
-    legacyHash: 'musica',
-    render: renderMusicSection,
-    init: initMusicSection
-  },
   {
     path: '/banda',
     title: 'Banda',
-    menuLabel: 'Integrantes',
+    menuLabel: 'La Banda',
     icon: '⚡',
-    description: 'Conoce a los cuatro músicos de Colombia, Argentina y Venezuela.',
+    description: 'Quiénes somos y los cuatro músicos de Colombia, Argentina y Venezuela.',
     group: 'main',
     legacyHash: 'integrantes',
-    render: renderMembersSection
+    render: renderBandPage,
+    init: initBandPage
+  },
+  {
+    path: '/discos',
+    title: 'Discos',
+    menuLabel: 'Discos',
+    icon: '💿',
+    description: 'Nuestra discografía, completa para escuchar en Spotify.',
+    group: 'main',
+    render: renderDiscosPage,
+    children: albumRoutes
   },
   {
     path: '/gira',
@@ -78,4 +95,4 @@ export const featureRoutes = [
   // importar su componente y agrega su entrada aquí.
 ];
 
-export const routes = [homeRoute, ...featureRoutes];
+export const routes = [homeRoute, ...featureRoutes.flatMap(r => [r, ...(r.children ?? [])])];

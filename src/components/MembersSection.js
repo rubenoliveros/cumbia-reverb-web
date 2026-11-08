@@ -1,7 +1,8 @@
 // src/components/MembersSection.js
 // Sección interactiva de integrantes con micro-interacciones inspiradas en Pato el Pez
 
-import { bandData } from '../data/bandData.js';
+import { bandData, isPending } from '../data/bandData.js';
+import { flag } from './flags.js';
 
 export function renderMembersSection() {
   return `
@@ -28,7 +29,7 @@ export function renderMembersSection() {
                 <div class="member-photo-overlay"></div>
                 
                 <div class="member-flag-badge">
-                  <span>${member.flag}</span>
+                  <span>${flag(member.flag)}</span>
                   <span>${member.country}</span>
                 </div>
               </div>
@@ -36,10 +37,7 @@ export function renderMembersSection() {
               <div class="member-info">
                 <h3 class="member-name">${member.name}</h3>
                 <p class="member-role">${member.role}</p>
-
-                <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.55;">
-                  ${member.bio}
-                </p>
+                ${isPending(member.bio) ? '' : `<p class="member-bio">${member.bio}</p>`}
               </div>
             </article>
           `).join('')}

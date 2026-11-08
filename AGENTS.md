@@ -27,7 +27,7 @@ Base: **Medellín, Colombia**. Banda de canciones originales.
 1. **Celta** (Colombia 🇨🇴) — Voz
 2. **Miguel** (Colombia 🇨🇴) — Guitarra
 3. **Matias** (Argentina 🇦🇷) — Bajo. Responde booking, WhatsApp y correo.
-4. **Ruben** (Venezuela 🇻🇪) — Batería & Percusión
+4. **Ruben** (Venezuela 🇻🇪) — Batería
 
 > [!IMPORTANT]
 > **Regla de contenido:** no inventar datos (bios, citas, equipos, fechas, cifras, vistas, productos, precios, letras, créditos, fotos o audios generados). Lo que la banda no haya confirmado va como placeholder (`Lorem ipsum` / `null`) y la UI lo oculta o lo marca como pendiente.
@@ -50,15 +50,18 @@ Base: **Medellín, Colombia**. Banda de canciones originales.
 ## 🎨 4. Sistema de Diseño Visual (Design Tokens)
 
 > [!IMPORTANT]
-> **Colores:** lee siempre [`PALETA.md`](PALETA.md) antes de tocar colores. Es la fuente oficial de la paleta (portada de *Sancocho Pa' Ratas* + logos), sus usos y reglas de contraste. Usa solo los tokens de `src/css/variables.css` (`--color-sancocho`, `--color-cian`, `--color-llama`, `--color-hueso`, `rgba(var(--rgb-…), α)`); no escribas hex sueltos. Si cambias la paleta, actualiza `PALETA.md` y `variables.css` juntos.
+> **Colores:** lee siempre [`PALETA.md`](PALETA.md) antes de tocar colores. Es la fuente oficial de la paleta (portada de *Sancocho Pa' Ratas* + logos), sus usos y reglas de contraste. Usa solo los tokens de `src/css/variables.css` (`--color-sancocho`, `--color-rayo`, `--color-cromo`, `--color-hueso`, `rgba(var(--rgb-…), α)`); no escribas hex sueltos. Si cambias la paleta, actualiza `PALETA.md` y `variables.css` juntos.
 
-- **Filosofía:** Psicodelia tropical sobre fondo vino casi negro, con los rojos y el hueso de la portada, el cian del logo para la interacción y el oro como detalle, y Glassmorphism (`backdrop-filter: blur(...)`).
+- **Filosofía:** Rock de escenario ("Alto Voltaje"): negro escenario, el rojo de la portada como identidad, amarillo eléctrico para la interacción y cromo como detalle, y Glassmorphism (`backdrop-filter: blur(...)`).
 - **Tipografías:**
   - Títulos y Acentos: `'Syne', sans-serif` (Google Fonts, weights: 700, 800, 900)
   - Textos y UI: `'Plus Jakarta Sans', sans-serif` (Google Fonts, weights: 400, 500, 600, 700, 800)
 
 > [!IMPORTANT]
 > **Regla de Estilos:** Se utiliza Vanilla CSS modular con variables en `src/css/variables.css`. No usar TailwindCSS a menos que se solicite explícitamente.
+
+> [!NOTE]
+> **21st.dev:** se usa solo como catálogo de inspiración (vía su MCP o el "copy prompt"). Sus componentes vienen en React + Tailwind: se reescriben como `renderX()`/`initX()` en JS vanilla con CSS sobre los tokens de `PALETA.md`, respetando `prefers-reduced-motion`. No se instalan React, Tailwind ni shadcn.
 
 ---
 
@@ -87,10 +90,11 @@ c:/Projects/CR_Site/
     │   ├── reset.css            # Normalización y custom scrollbars
     │   ├── variables.css        # Tokens de diseño (colores según PALETA.md)
     │   ├── components.css       # Tarjetas, botones luminosos, player flotante, modales
+    │   ├── paletas-prueba.css   # TEMPORAL: paletas alternativas (?paleta=voltaje|funk|garaje), no oficiales
     │   └── main.css             # Layouts responsivos y breakpoints
     ├── data/
     │   ├── bandData.js          # Datos y biografía de la banda e integrantes
-    │   ├── musicData.js         # Discografía, letras de canciones y créditos
+    │   ├── musicData.js         # Discografía: arreglo `albums` (un objeto por disco), letras y créditos
     │   ├── videosData.js        # Hub de YouTube, clips y shorts
     │   ├── tourData.js          # Fechas de gira y estado de boletos
     │   ├── merchData.js         # Productos de merchandising y FAQ
@@ -99,7 +103,10 @@ c:/Projects/CR_Site/
     │   ├── Navbar.js            # Menú superior fijo con glassmorphism y drawer móvil
     │   ├── Hero.js              # Canvas interactivo con osciloscopio de ondas sonoras
     │   ├── AudioPlayer.js       # Reproductor persistente inferior (cumbiaPlayer API)
-    │   ├── MusicSection.js      # Catálogo con preview de audio y embed Spotify
+    │   ├── TrackStrip.js        # Franja de temas del disco que acelera con el scroll (página del disco, 21st.dev)
+    │   ├── MusicSection.js      # "Escúchalo completo": embed de Spotify + lista de temas
+    │   ├── NextShow.js          # Próxima fecha + llamada a booking (home y disco)
+    │   ├── flags.js             # Banderas SVG (Windows no dibuja los emojis de bandera)
     │   ├── VideosSection.js     # Sección YouTube con CTA de suscripción rápida
     │   ├── MembersSection.js    # Fichas interactivas de músicos
     │   ├── TourSection.js       # Conciertos y llamadas a booking
@@ -110,7 +117,10 @@ c:/Projects/CR_Site/
     │   ├── LyricsModal.js       # Modal para leer letras completas de los temas
     │   └── Footer.js            # Redes, newsletter y pie de página
     ├── pages/
-    │   └── HomePage.js          # Landing: Hero + tarjetas generadas desde routes.js
+    │   ├── HomePage.js          # Inicio: hero, la banda en corto, adelanto del último disco, próximo show
+    │   ├── BandPage.js          # #/banda: presentación de Cumbia Reverb + integrantes
+    │   ├── DiscosPage.js        # #/discos: índice de la discografía
+    │   └── AlbumPage.js         # #/discos/<slug>: promoción de un disco (#/sancocho y #/musica abren Sancocho Pa' Ratas)
     ├── routes.js                # Registro central de páginas (fuente única de navegación)
     ├── router.js                # Enrutador hash (#/musica) sin recarga; el reproductor sigue sonando
     └── main.js                  # Shell persistente (navbar, footer, player, modales) + arranque del router
@@ -121,6 +131,12 @@ c:/Projects/CR_Site/
 1. Crea el componente con `renderX()` (retorna HTML) y opcionalmente `initX()` (conecta eventos; puede retornar una función de limpieza que se ejecuta al salir de la página).
 2. Agrega una entrada en `featureRoutes` de `src/routes.js` (`path`, `title`, `menuLabel`, `icon`, `description`, `group`).
 3. Listo: navbar, menú móvil, footer y la tarjeta en la página de inicio se generan solos.
+
+Menú actual: **Banda · Discos · Gira · Contacto**. Una ruta con `children` se muestra como desplegable (Discos).
+
+### 💿 Agregar un disco
+
+Agrega un objeto al arreglo `albums` de `src/data/musicData.js` (mismos campos que *Sancocho Pa' Ratas*). Su página `#/discos/<slug>`, su entrada en el desplegable "Discos" y su tarjeta en `#/discos` se generan solas. El primer disco del arreglo es el que se promociona en la Home y en el hero.
 
 > [!NOTE]
 > Las anclas antiguas de la versión one-page (`#musica`, `#tienda`, …) redirigen automáticamente a la nueva ruta mediante `legacyHash`.

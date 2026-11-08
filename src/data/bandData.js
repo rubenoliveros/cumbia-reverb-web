@@ -6,6 +6,9 @@
 const LOREM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 const PLACEHOLDER_PHOTO = "/images/placeholder.svg";
 
+// true si el texto falta o sigue siendo placeholder: la UI no lo muestra.
+export const isPending = text => !text || text.startsWith("Lorem ipsum");
+
 export const bandData = {
   name: "Cumbia Reverb",
   tagline: "Puro Rocanrol Sudaca 🇨🇴 🇦🇷 🇻🇪",
@@ -64,6 +67,6 @@ export const bandData = {
     { id: "celta", name: "Celta", role: "Voz", country: "Colombia", flag: "🇨🇴", image: PLACEHOLDER_PHOTO, bio: LOREM },
     { id: "miguel", name: "Miguel", role: "Guitarra", country: "Colombia", flag: "🇨🇴", image: PLACEHOLDER_PHOTO, bio: LOREM },
     { id: "matias", name: "Matias", role: "Bajo", country: "Argentina", flag: "🇦🇷", image: PLACEHOLDER_PHOTO, bio: LOREM },
-    { id: "ruben", name: "Ruben", role: "Batería & Percusión", country: "Venezuela", flag: "🇻🇪", image: PLACEHOLDER_PHOTO, bio: LOREM }
+    { id: "ruben", name: "Ruben", role: "Batería", country: "Venezuela", flag: "🇻🇪", image: PLACEHOLDER_PHOTO, bio: LOREM }
   ]
 };

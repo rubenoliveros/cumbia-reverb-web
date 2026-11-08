@@ -16,10 +16,10 @@
   width: fit-content;
 }
 
-.badge-llama {
-  background: rgba(var(--rgb-llama), 0.12);
-  color: var(--color-llama);
-  border: 1px solid rgba(var(--rgb-llama), 0.3);
+.badge-cromo {
+  background: rgba(var(--rgb-cromo), 0.12);
+  color: var(--color-cromo);
+  border: 1px solid rgba(var(--rgb-cromo), 0.3);
 }
 
 .badge-sancocho {
@@ -81,9 +81,9 @@
 
 .btn-secondary:hover {
   background: var(--color-bg-glass-hover);
-  border-color: var(--color-cian);
-  color: var(--color-cian);
-  box-shadow: var(--glow-cian);
+  border-color: var(--color-rayo);
+  color: var(--color-rayo);
+  box-shadow: var(--glow-rayo);
   transform: translateY(-2px);
 }
 
@@ -181,9 +181,9 @@
 
 /* Gradient Text Effect */
 .text-reverb {
-  /* Desfase 3D cian/rojo como en el logo (ver PALETA.md) */
+  /* Desfase 3D amarillo/rojo, eco del desfase del logo (ver PALETA.md) */
   color: var(--color-hueso);
-  text-shadow: -0.05em 0 0 var(--color-cian), 0.05em 0 0 var(--color-sancocho);
+  text-shadow: -0.05em 0 0 var(--color-rayo), 0.05em 0 0 var(--color-sancocho);
 }
 
 .text-gradient-fuego {
@@ -204,8 +204,8 @@
 }
 
 .card-glass:hover {
-  border-color: rgba(var(--rgb-cian), 0.4);
-  box-shadow: 0 20px 48px -12px rgba(var(--rgb-cian), 0.2);
+  border-color: rgba(var(--rgb-rayo), 0.4);
+  box-shadow: 0 20px 48px -12px rgba(var(--rgb-rayo), 0.2);
   transform: translateY(-4px);
 }
 
@@ -226,7 +226,7 @@
 
 .navbar.scrolled {
   background: rgba(var(--rgb-bg), 0.95);
-  border-bottom-color: rgba(var(--rgb-cian), 0.2);
+  border-bottom-color: rgba(var(--rgb-rayo), 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
 }
 
@@ -289,7 +289,7 @@
 }
 
 .nav-link:hover, .nav-link.active {
-  color: var(--color-cian);
+  color: var(--color-rayo);
 }
 
 .nav-link:hover::after, .nav-link.active::after {
@@ -366,7 +366,7 @@
   justify-content: center;
   padding: calc(var(--nav-height) + 40px) 24px 80px 24px;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 30%, rgba(var(--rgb-cian), 0.09) 0%, rgba(var(--rgb-sancocho), 0.06) 40%, rgba(var(--rgb-bg), 0.98) 75%);
+  background: radial-gradient(circle at 50% 30%, rgba(var(--rgb-rayo), 0.09) 0%, rgba(var(--rgb-sancocho), 0.06) 40%, rgba(var(--rgb-bg), 0.98) 75%);
 }
 
 .hero-canvas {
@@ -487,8 +487,8 @@
 
 .track-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(var(--rgb-cian), 0.45);
-  box-shadow: 0 20px 40px -10px rgba(var(--rgb-cian), 0.25);
+  border-color: rgba(var(--rgb-rayo), 0.45);
+  box-shadow: 0 20px 40px -10px rgba(var(--rgb-rayo), 0.25);
 }
 
 .track-cover-wrap {
@@ -537,7 +537,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
-  box-shadow: 0 8px 24px rgba(var(--rgb-cian), 0.5);
+  box-shadow: 0 8px 24px rgba(var(--rgb-rayo), 0.5);
   transition: transform var(--transition-bounce);
 }
 
@@ -648,7 +648,7 @@
 }
 
 .track-row.is-playing .track-row-title {
-  color: var(--color-cian);
+  color: var(--color-rayo);
 }
 
 .track-row-num,
@@ -698,8 +698,8 @@
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  border: 1.5px solid rgba(var(--rgb-cian), 0.35);
-  box-shadow: 0 20px 50px -15px rgba(var(--rgb-cian), 0.25);
+  border: 1.5px solid rgba(var(--rgb-rayo), 0.35);
+  box-shadow: 0 20px 50px -15px rgba(var(--rgb-rayo), 0.25);
   margin-bottom: 48px;
 }
 
@@ -840,9 +840,9 @@
 }
 
 .short-card:hover {
-  border-color: var(--color-cian);
+  border-color: var(--color-rayo);
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px -8px rgba(var(--rgb-cian), 0.2);
+  box-shadow: 0 12px 30px -8px rgba(var(--rgb-rayo), 0.2);
 }
 
 /* --- Members Section --- */
@@ -870,8 +870,8 @@
 }
 
 .member-card:hover {
-  border-color: var(--color-cian);
-  box-shadow: 0 24px 50px -12px rgba(var(--rgb-cian), 0.28);
+  border-color: var(--color-rayo);
+  box-shadow: 0 24px 50px -12px rgba(var(--rgb-rayo), 0.28);
   transform: translateY(-6px);
 }
 
@@ -987,7 +987,7 @@
 }
 
 .tour-card:hover {
-  border-color: var(--color-cian);
+  border-color: var(--color-rayo);
   transform: translateX(4px);
   background: var(--color-bg-glass-hover);
 }
@@ -1002,7 +1002,7 @@
   font-family: var(--font-heading);
   font-size: 1.35rem;
   font-weight: 900;
-  color: var(--color-llama);
+  color: var(--color-cromo);
 }
 
 .tour-venue-box {
@@ -1181,7 +1181,7 @@
   background: var(--gradient-reverb);
   color: var(--color-hueso);
   border-color: transparent;
-  box-shadow: 0 4px 20px rgba(var(--rgb-cian), 0.35);
+  box-shadow: 0 4px 20px rgba(var(--rgb-rayo), 0.35);
 }
 
 .epk-tab-pane {
@@ -1238,8 +1238,8 @@
 }
 
 .musician-pod:hover {
-  border-color: var(--color-cian);
-  box-shadow: var(--glow-cian);
+  border-color: var(--color-rayo);
+  box-shadow: var(--glow-rayo);
   transform: scale(1.03);
 }
 
@@ -1302,11 +1302,11 @@
   font-size: 0.82rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-cian);
+  color: var(--color-rayo);
 }
 
 .input-table tr:hover td {
-  background: rgba(var(--rgb-cian), 0.04);
+  background: rgba(var(--rgb-rayo), 0.04);
 }
 
 /* EPK Downloads Grid */
@@ -1331,7 +1331,7 @@
 }
 
 .epk-download-card:hover {
-  border-color: var(--color-cian);
+  border-color: var(--color-rayo);
   transform: translateY(-3px);
 }
 
@@ -1375,7 +1375,7 @@
   height: 48px;
   border-radius: var(--radius-sm);
   object-fit: cover;
-  border: 1px solid var(--color-cian);
+  border: 1px solid var(--color-rayo);
 }
 
 .player-meta {
@@ -1395,7 +1395,7 @@
 
 .player-artist {
   font-size: 0.78rem;
-  color: var(--color-cian);
+  color: var(--color-rayo);
 }
 
 /* Equalizer Bars Animation */
@@ -1408,7 +1408,7 @@
 
 .eq-bar {
   width: 3px;
-  background: var(--color-cian);
+  background: var(--color-rayo);
   border-radius: 1px;
   height: 4px;
   transition: height 0.1s ease;
@@ -1449,7 +1449,7 @@
 
 .player-btn-main:hover {
   transform: scale(1.1);
-  box-shadow: var(--glow-cian);
+  box-shadow: var(--glow-rayo);
 }
 
 .player-btn-sub {
@@ -1593,8 +1593,8 @@
 }
 
 .form-control:focus {
-  border-color: var(--color-cian);
-  box-shadow: var(--glow-cian);
+  border-color: var(--color-rayo);
+  box-shadow: var(--glow-rayo);
   outline: none;
 }
 
@@ -1605,7 +1605,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(50px);
   background: var(--color-bg-surface-elevated);
-  border: 1px solid var(--color-cian);
+  border: 1px solid var(--color-rayo);
   color: var(--color-text-main);
   padding: 12px 24px;
   border-radius: var(--radius-full);
@@ -1679,8 +1679,8 @@
 
 .footer-social-icon:hover {
   color: var(--color-hueso);
-  border-color: var(--color-cian);
-  box-shadow: var(--glow-cian);
+  border-color: var(--color-rayo);
+  box-shadow: var(--glow-rayo);
   transform: translateY(-2px);
 }
 
@@ -1706,7 +1706,7 @@
 }
 
 .footer-link:hover {
-  color: var(--color-cian);
+  color: var(--color-rayo);
 }
 
 .footer-bottom {
@@ -1739,4 +1739,665 @@
   10%, 30% { transform: rotate(-15deg); }
   20%, 40% { transform: rotate(15deg); }
   50% { transform: rotate(0); }
+}
+
+/* ==========================================================================
+   TRACK STRIP — temas del disco en dos filas que aceleran con el scroll
+   (adaptado de "Scroll Velocity Text", 21st.dev)
+   ========================================================================== */
+.track-strip {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  padding: 40px 0;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+  border-block: 1px solid var(--color-border-subtle);
+}
+
+.track-strip-row {
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.track-strip-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.track-strip-block {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  user-select: none;
+}
+
+.track-strip-item {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 5vw, 4rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+}
+
+.track-strip-row:nth-child(even) .track-strip-item {
+  color: var(--color-sancocho);
+}
+
+.track-strip-item::after {
+  content: "✺";
+  margin-inline: 0.7em;
+  font-size: 0.45em;
+  color: var(--color-cromo);
+}
+
+/* prefers-reduced-motion: filas quietas, los temas se acomodan en líneas */
+.track-strip.is-static .track-strip-row {
+  white-space: normal;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.track-strip.is-static .track-strip-track {
+  width: auto;
+  justify-content: center;
+  padding: 0 24px;
+}
+
+.track-strip.is-static .track-strip-block {
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.track-strip.is-static .track-strip-item {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+/* ==========================================================================
+   HOME — la banda, teaser del disco y próximo concierto
+   ========================================================================== */
+.hero-location {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 36px;
+}
+
+.style-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: -20px 0 44px;
+  padding: 0;
+  list-style: none;
+}
+
+.style-chip {
+  padding: 8px 16px;
+  border: 1px solid rgba(var(--rgb-sancocho), 0.45);
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-text-subtle);
+}
+
+.lineup {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.lineup-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--color-text-main);
+}
+
+.lineup-flag {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
+.lineup-name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.lineup-role {
+  font-weight: 700;
+  color: var(--color-sancocho);
+}
+
+.lineup-country {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.album-teaser {
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.album-teaser-cover-link {
+  display: block;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-smooth);
+}
+
+.album-teaser-cover-link:hover {
+  transform: rotate(-2deg) scale(1.02);
+}
+
+.album-teaser-cover {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card), 0 0 60px rgba(var(--rgb-sancocho), 0.25);
+}
+
+.album-teaser-title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.next-show {
+  display: grid;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.next-show-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 28px;
+  background: var(--color-bg-glass-card);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-lg);
+}
+
+.next-show-date {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: var(--color-cromo);
+  white-space: nowrap;
+}
+
+.next-show-city {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.next-show-venue {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.next-show-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 24px 28px;
+  border-radius: var(--radius-lg);
+  background: rgba(var(--rgb-sancocho), 0.08);
+  border: 1px solid rgba(var(--rgb-sancocho), 0.3);
+  color: var(--color-text-subtle);
+}
+
+/* ==========================================================================
+   PÁGINA DEL DISCO — Sancocho Pa' Ratas
+   ========================================================================== */
+.album-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0 88px;
+}
+
+.album-hero-bg {
+  position: absolute;
+  inset: -40px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(60px) saturate(1.3);
+  opacity: 0.35;
+}
+
+.album-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(var(--rgb-bg), 0.4), rgba(var(--rgb-bg), 0.95));
+}
+
+.album-hero-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.album-hero-cover {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.9), 0 0 80px rgba(var(--rgb-sancocho), 0.3);
+  transform: rotate(-2deg);
+}
+
+.album-hero-title {
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 22px;
+}
+
+.album-hero-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-weight: 700;
+  color: var(--color-text-subtle);
+  margin-bottom: 30px;
+}
+
+.album-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.listen-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+
+.listen-grid .tracklist {
+  margin-top: 0;
+}
+
+@media (max-width: 900px) {
+  .lineup {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .album-teaser,
+  .album-hero-grid,
+  .listen-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .album-hero {
+    padding: 40px 0 56px;
+  }
+
+  .album-hero-cover-wrap,
+  .album-teaser-cover-link {
+    max-width: 420px;
+  }
+
+  .next-show-card {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .album-teaser-cover-link,
+  .album-teaser-cover-link:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+.member-bio {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+/* Banderas SVG (flags.js) */
+.flag {
+  display: inline-block;
+  width: 1.4em;
+  height: auto;
+  vertical-align: -0.12em;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(var(--rgb-hueso), 0.15);
+}
+
+.hero-tagline .flag {
+  margin-left: 0.25em;
+}
+
+.lineup-flag .flag {
+  width: 2.6rem;
+}
+
+/* ==========================================================================
+   NAVBAR — desplegable (Discos)
+   ========================================================================== */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.nav-dropdown-chevron {
+  transition: transform var(--transition-fast);
+}
+
+.nav-dropdown.open .nav-dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  min-width: 300px;
+  margin-top: 14px;
+  padding: 8px;
+  display: grid;
+  gap: 4px;
+  background: rgba(var(--rgb-bg), 0.97);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-dropdown);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -6px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+}
+
+/* puente invisible para que el hover no se corte entre el botón y el menú */
+.nav-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -16px;
+  height: 16px;
+}
+
+.nav-dropdown.open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.nav-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-main);
+  transition: background var(--transition-fast);
+}
+
+.nav-dropdown-item img {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.nav-dropdown-item:hover,
+.nav-dropdown-item:focus-visible,
+.nav-dropdown-item.active {
+  background: rgba(var(--rgb-rayo), 0.1);
+}
+
+.nav-dropdown-item:hover .nav-dropdown-item-title,
+.nav-dropdown-item.active .nav-dropdown-item-title {
+  color: var(--color-rayo);
+}
+
+.nav-dropdown-item-title {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+
+.nav-dropdown-item-meta {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.mobile-drawer-sublink {
+  margin-top: -10px;
+  padding: 4px 0 4px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-subtle);
+}
+
+.mobile-drawer-sublink.active {
+  color: var(--color-rayo);
+}
+
+/* ==========================================================================
+   DISCOS (índice: un bloque grande por disco) y BANDA (presentación)
+   ========================================================================== */
+.album-hero-back:hover {
+  color: var(--color-rayo);
+}
+
+.discos-list {
+  display: grid;
+  gap: 32px;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.disco-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+  padding: 28px;
+  background: var(--color-bg-glass-card);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-lg);
+}
+
+/* Discos alternados: portada a la derecha en los pares */
+.disco-feature:nth-child(even) .disco-feature-cover-link {
+  order: 2;
+}
+
+.disco-feature-cover-link {
+  display: block;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-smooth);
+}
+
+.disco-feature-cover-link:hover {
+  transform: rotate(-2deg) scale(1.02);
+}
+
+.disco-feature-cover {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card), 0 0 60px rgba(var(--rgb-sancocho), 0.25);
+}
+
+.disco-feature-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--color-sancocho);
+  margin-bottom: 10px;
+}
+
+.disco-feature-title {
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+
+.disco-feature-title a {
+  color: var(--color-text-main);
+}
+
+.disco-feature-title a:hover {
+  color: var(--color-rayo);
+}
+
+.band-intro-grid {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.band-intro-visual img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 0 auto 28px;
+  filter: drop-shadow(0 20px 50px rgba(var(--rgb-sancocho), 0.25));
+}
+
+.band-intro-title {
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+}
+
+.band-intro-tagline {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.band-intro-tagline .flag {
+  margin-left: 0.25em;
+}
+
+.band-intro-lead {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--color-text-subtle);
+  margin-bottom: 16px;
+}
+
+.band-intro-text {
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+}
+
+.band-intro .album-hero-actions {
+  justify-content: center;
+  margin-top: 18px;
+}
+
+@media (max-width: 900px) {
+  .disco-feature {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 18px;
+  }
+
+  .disco-feature:nth-child(even) .disco-feature-cover-link {
+    order: 0;
+  }
+
+  .disco-feature-cover-link {
+    max-width: 420px;
+  }
+
+  .band-intro-visual img {
+    max-width: 240px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .disco-feature-cover-link,
+  .disco-feature-cover-link:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-dropdown-menu,
+  .nav-dropdown-chevron {
+    transition: none;
+  }
+}
+
+.discografia-title {
+  font-size: clamp(3rem, 10vw, 7.5rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 56px;
 }
