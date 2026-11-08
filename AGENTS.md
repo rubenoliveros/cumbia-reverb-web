@@ -26,7 +26,7 @@ Base: **Medellín, Colombia**. Banda de canciones originales.
 
 1. **Celta** (Colombia 🇨🇴) — Voz
 2. **Miguel** (Colombia 🇨🇴) — Guitarra
-3. **Matias** (Argentina 🇦🇷) — Bajo. Responde booking, WhatsApp y correo.
+3. **Matias** (Argentina 🇦🇷) — Bajo.
 4. **Ruben** (Venezuela 🇻🇪) — Batería
 
 > [!IMPORTANT]
@@ -43,7 +43,7 @@ Base: **Medellín, Colombia**. Banda de canciones originales.
   - Tracklist completo en `src/data/musicData.js`.
 - **YouTube:** pendiente, el canal está por crear (`bandData.social.youtube = null`).
 - **Instagram:** `@cumbia_reverb` (`https://www.instagram.com/cumbia_reverb/`)
-- **Contacto Booking:** `booking@cumbiareverb.com` · WhatsApp de Matías pendiente.
+- **Contacto Booking:** `booking@cumbiareverb.com` · Persona de contacto y WhatsApp por definir (la página de contacto muestra "Por definir").
 
 ---
 

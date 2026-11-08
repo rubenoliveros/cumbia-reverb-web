@@ -2392,12 +2392,39 @@
   }
 }
 
+.discografia-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1040px;
+  margin: 0 auto 32px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--color-border-card);
+}
+
 .discografia-title {
-  font-size: clamp(3rem, 10vw, 7.5rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  text-align: center;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.discografia-count {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin-bottom: 56px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* Dato pendiente que la banda debe completar (ej: persona de contacto) */
+.contact-card-pending {
+  display: inline-block;
+  padding: 2px 10px;
+  border: 1px dashed rgba(var(--rgb-rayo), 0.6);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  color: var(--color-rayo);
 }

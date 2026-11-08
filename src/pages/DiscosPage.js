@@ -8,7 +8,10 @@ export function renderDiscosPage() {
   return `
     <section class="section">
       <div class="container">
-        <h1 class="discografia-title">Disco<span class="text-reverb">grafía</span></h1>
+        <header class="discografia-header">
+          <h1 class="discografia-title">Discografía</h1>
+          <span class="discografia-count">${albums.length} ${albums.length === 1 ? 'disco' : 'discos'}</span>
+        </header>
 
         <ol class="discos-list">
           ${albums.map((album, i) => `

@@ -22,20 +22,21 @@ export const bandData = {
     instagram: "https://www.instagram.com/cumbia_reverb/",
     instagramHandle: "@cumbia_reverb",
     email: "booking@cumbiareverb.com",
-    // PLACEHOLDER: reemplazar por el número real de Matías (booking y merch) antes de publicar.
+    // PLACEHOLDER: reemplazar por el número real de quien atienda booking antes de publicar.
     // Formato internacional sin "+" (ej. 57300...).
     whatsappNumber: "573555555555",
     whatsappBookingText: "¡Hola Cumbia Reverb! Me gustaría cotizar un concierto / presentación en vivo con la banda."
   },
   // Página /contacto: una tarjeta por tema (modelo bigthief.net/contact).
-  // Por ahora Matías responde todo; si otra persona asume un tema, cambia su contacto aquí.
+  // PENDIENTE: la banda aún no decide quién responde cada tema. Mientras `person` sea null,
+  // la tarjeta muestra "Por definir" como recordatorio. Pon aquí el nombre cuando se acuerde.
   contacts: [
     {
       id: "booking",
       icon: "🎟️",
       title: "Booking y conciertos",
       description: "Festivales, salas de conciertos, eventos culturales y de empresa.",
-      person: "Matias",
+      person: null,
       email: "booking@cumbiareverb.com",
       whatsappText: "¡Hola Cumbia Reverb! Me gustaría cotizar un concierto / presentación en vivo con la banda.",
       bookingForm: true
@@ -45,7 +46,7 @@ export const bandData = {
       icon: "📰",
       title: "Prensa y medios",
       description: "Entrevistas, reseñas, radio y sesiones en vivo.",
-      person: "Matias",
+      person: null,
       email: "booking@cumbiareverb.com",
       whatsappText: "¡Hola Cumbia Reverb! Les escribo de un medio y me gustaría hablar con la banda."
     }

@@ -29,7 +29,9 @@ export function renderContactSection() {
               <span class="feature-card-icon">${c.icon}</span>
               <h3 class="contact-card-title">${c.title}</h3>
               <p class="contact-card-desc">${c.description}</p>
-              <p class="contact-card-person">Contacto: <strong>${c.person}</strong></p>
+              <p class="contact-card-person">Contacto: ${c.person
+                ? `<strong>${c.person}</strong>`
+                : `<span class="contact-card-pending">Por definir</span>`}</p>
 
               <div class="contact-card-actions">
                 ${bandData.social.whatsappNumber ? `

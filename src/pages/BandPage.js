@@ -26,10 +26,9 @@ export function renderBandPage() {
           <h1 class="band-intro-title">${bandData.name}</h1>
           <p class="band-intro-tagline">${withFlags(bandData.tagline)}</p>
 
-          <p class="band-intro-lead">
-            Banda de canciones originales de ${bandData.location}: cuatro músicos de Colombia,
-            Argentina y Venezuela que mezclan cumbia, surf y rock de garaje.
-          </p>
+          <!-- PENDIENTE: presentación corta de la banda. Se deja el Lorem ipsum visible a
+               propósito, como recordatorio, hasta que la banda escriba el texto (bio.summary). -->
+          <p class="band-intro-lead">${bandData.bio.summary}</p>
           ${bio.map(p => `<p class="band-intro-text">${p}</p>`).join('')}
 
           <div class="album-hero-actions">
