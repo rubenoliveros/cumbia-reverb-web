@@ -21,6 +21,7 @@ export const bandData = {
     youtubeSubscribe: null,
     instagram: "https://www.instagram.com/cumbia_reverb/",
     instagramHandle: "@cumbia_reverb",
+    tiktok: "https://www.tiktok.com/@reverb.cumbia",
     email: "booking@cumbiareverb.com",
     // PLACEHOLDER: reemplazar por el número real de quien atienda booking antes de publicar.
     // Formato internacional sin "+" (ej. 57300...).

@@ -43,6 +43,7 @@ Base: **Medellín, Colombia**. Banda de canciones originales.
   - Tracklist completo en `src/data/musicData.js`.
 - **YouTube:** pendiente, el canal está por crear (`bandData.social.youtube = null`).
 - **Instagram:** `@cumbia_reverb` (`https://www.instagram.com/cumbia_reverb/`)
+- **TikTok:** `@reverb.cumbia` (`https://www.tiktok.com/@reverb.cumbia`)
 - **Contacto Booking:** `booking@cumbiareverb.com` · Persona de contacto y WhatsApp por definir (la página de contacto muestra "Por definir").
 
 ---

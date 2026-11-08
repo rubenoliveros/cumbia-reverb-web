@@ -2,6 +2,7 @@
 // Página de contacto: una tarjeta por tema (booking, prensa…) con la persona responsable
 
 import { bandData } from '../data/bandData.js';
+import { renderSocialLinks } from './socialIcons.js';
 
 const whatsappUrl = (text) =>
   `https://wa.me/${bandData.social.whatsappNumber}?text=${encodeURIComponent(text)}`;
@@ -50,11 +51,12 @@ export function renderContactSection() {
           `).join('')}
         </div>
 
-        <p class="contact-social">
-          También estamos en
-          <a href="${bandData.social.instagram}" target="_blank" rel="noopener noreferrer">Instagram ${bandData.social.instagramHandle}</a>
-          y <a href="${bandData.social.spotify}" target="_blank" rel="noopener noreferrer">Spotify</a>.
-        </p>
+        <div class="contact-social">
+          <p>También estamos en</p>
+          <div class="contact-social-icons">
+            ${renderSocialLinks({ className: 'contact-social-icon', size: 22, only: ['instagram', 'spotify', 'tiktok'] })}
+          </div>
+        </div>
       </div>
     </section>
   `;
