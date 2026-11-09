@@ -14,7 +14,7 @@ export function renderMerchSection() {
           <span class="section-tag">TIENDA OFICIAL</span>
           <h2 class="section-title">
             <span>Merch &</span>
-            <span class="text-gradient-reverb">Coleccionables</span>
+            <span class="text-reverb">Coleccionables</span>
           </h2>
           <p class="section-subtitle">
             Lleva la frecuencia de Cumbia Reverb contigo. ${merchData.currencyNotice}
@@ -26,11 +26,11 @@ export function renderMerchSection() {
             <article class="merch-card" data-product-id="${prod.id}">
               <div class="merch-img-wrap">
                 <img src="${prod.image}" alt="${prod.name}" class="merch-img" loading="lazy" />
-                <span class="badge badge-magenta merch-badge">${prod.badge}</span>
+                <span class="badge badge-sancocho merch-badge">${prod.badge}</span>
               </div>
 
               <div class="merch-body">
-                <span class="badge badge-cyan" style="margin-bottom: 8px;">${prod.tag}</span>
+                <span class="badge badge-cromo" style="margin-bottom: 8px;">${prod.tag}</span>
                 <h3 class="merch-title">${prod.name}</h3>
 
                 <div class="merch-prices">

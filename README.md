@@ -71,7 +71,7 @@ Plataforma web oficial para la banda **Cumbia Reverb**, inspirada en la arquitec
 - 🇨🇴 **Miguel:** Guitarra Surf & Reverb
 - 🇨🇴 **Javier:** Teclados & Sintetizadores Tropicales
 - 🇦🇷 **Matias:** Bajo Eléctrico & Groove Pulmón
-- 🇻🇪 **Ruben:** Batería, Timbales & Percusión
+- 🇻🇪 **Ruben:** Batería
 
 ---
 

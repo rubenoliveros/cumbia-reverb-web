@@ -1,0 +1,52 @@
+/* ==========================================================================
+   PALETAS POR DISCO — cada página de disco puede usar los colores de su portada.
+   Se activan con `palette` en src/data/musicData.js: AlbumPage envuelve la página en
+   <div class="album-palette" data-palette="...">. Navbar y footer siguen con la paleta
+   oficial (Alto Voltaje). Documentadas en PALETA.md §6.
+
+   Se redeclaran también los tokens derivados (bordes, brillos, vidrio), porque en
+   variables.css se calculan una sola vez en :root.
+   ========================================================================== */
+
+.album-palette {
+  background: var(--color-bg-primary);
+  color: var(--color-text-main);
+}
+
+/* SANCOCHO — portada de "Sancocho Pa' Ratas" + desfase cian del logo */
+[data-palette="sancocho"] {
+  --color-bg-primary: #0f0605;
+  --color-bg-secondary: #160908;
+  --color-bg-surface: #1f0d0b;
+  --color-bg-surface-elevated: #2b1210;
+  --rgb-bg: 15, 6, 5;
+  --rgb-sancocho: 230, 58, 51;
+  --rgb-rayo: 0, 229, 253;
+  --rgb-cromo: 235, 172, 17;
+  --rgb-hueso: 246, 235, 216;
+
+  --color-bg-glass: rgba(22, 9, 8, 0.78);
+  --color-bg-glass-card: rgba(31, 13, 11, 0.65);
+  --color-bg-glass-hover: rgba(43, 18, 16, 0.85);
+  --color-border-subtle: rgba(var(--rgb-hueso), 0.08);
+  --color-border-card: rgba(var(--rgb-hueso), 0.12);
+  --color-border-glow-rayo: rgba(var(--rgb-rayo), 0.4);
+  --color-border-glow-sancocho: rgba(var(--rgb-sancocho), 0.4);
+
+  --color-sancocho: #e63a33;  /* rojo de la portada */
+  --color-rayo: #00e5fd;      /* interacción: cian del logo */
+  --color-cromo: #ebac11;     /* detalle: oro de las llamas */
+  --color-carmesi: #c42121;
+  --color-hueso: #f6ebd8;
+  --color-sangre: #8f1112;
+
+  --color-text-main: #f6ebd8;
+  --color-text-subtle: #e3d1bd;
+  --color-text-muted: #c89a88;
+  --color-text-dim: #8a6a60;
+
+  --gradient-reverb: linear-gradient(135deg, #c42121 0%, #8f1112 100%);
+  --gradient-fuego: linear-gradient(135deg, #e63a33 0%, #8f1112 100%);
+  --glow-rayo: 0 0 25px rgba(var(--rgb-rayo), 0.45);
+  --glow-sancocho: 0 0 25px rgba(var(--rgb-sancocho), 0.45);
+}

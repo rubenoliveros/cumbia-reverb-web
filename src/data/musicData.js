@@ -1,135 +1,102 @@
 // src/data/musicData.js
-// Catálogo discográfico oficial de Cumbia Reverb en plataformas de streaming
+// Discografía de Cumbia Reverb (datos tomados de Spotify).
+//
+// AGREGAR UN DISCO: añade un objeto a `albums` con los mismos campos, en cualquier
+// posición. Los discos se ordenan solos por `releaseDate` (el más nuevo primero) en el
+// menú "Discos", la discografía y la Home. `releaseDate` sale de Spotify (AAAA-MM-DD);
+// si falta, el disco va al final y no muestra año. Cada disco tiene su página en
+// #/discos/<slug>.
+//
+// Campos opcionales por disco:
+//   upcoming  true = disco anunciado que aún no sale (placeholder). Va primero, muestra
+//             "Próximamente" y su página no tiene temas ni Spotify. Al salir, quita
+//             `upcoming` y completa título, portada, fecha, Spotify y temas.
+//   palette   paleta propia para la página del disco (ver src/css/paletas-disco.css)
+//   aliases / legacyHash  enlaces viejos que deben abrir este disco
+//
+// Campos opcionales por pista (se muestran solo si existen):
+//   audioPreview  ruta a un MP3 real en /public/audio (activa el reproductor persistente)
+//   lyrics        letra oficial entregada por la banda
+//   credits       créditos reales de composición / producción
 
-export const musicData = {
-  spotifyArtistId: "2QDEorhtmjmhWrFEItrp4i",
-  spotifyEmbedUrl: "https://open.spotify.com/embed/artist/2QDEorhtmjmhWrFEItrp4i?utm_source=generator&theme=0",
-  tracks: [
-    {
-      id: "cumbia-reverb",
-      title: "Cumbia Reverb",
-      type: "Single Oficial / Himno",
-      duration: "3:42",
-      releaseYear: 2024,
-      bpm: 96,
-      cover: "/images/covers/official_cover.jpg",
-      audioPreview: "/audio/cumbia_reverb_preview.wav",
-      links: {
-        spotify: "https://open.spotify.com/artist/2QDEorhtmjmhWrFEItrp4i",
-        youtube: "https://www.youtube.com/channel/UCJDQ5L37qhZuBiu1fbeNc_Q",
-        apple: "https://music.apple.com"
-      },
-      tagline: "El manifiesto sonoro de la banda",
-      description: "El tema insignia. Guitarras surf empapadas en reverberación de resortes, sintetizadores analógicos espaciales y una base rítmica de güiro y timbales que induce a un trance hipnótico ininterrumpido.",
-      lyrics: `[Verso 1]
-Siento en el pecho la vibración
-Una frecuencia de otra dimensión
-El río suena, la selva arde
-Ya no te vayas que se hace tarde...
+const track = (id, title, spotifyId, duration, cover) => ({
+  id,
+  title,
+  duration,
+  cover,
+  links: { spotify: `https://open.spotify.com/track/${spotifyId}` }
+});
 
-[Coro]
-¡Cumbia con reverb, cumbia espacial!
-Para bailar en la noche estelar
-¡Cumbia con reverb, ritmo animal!
-Sudor y fiesta hasta el final!
+const SANCOCHO_COVER = "/images/covers/official_cover.jpg";
 
-[Puente Instrumental - Solo Surf Reverb]
+export const spotifyArtistId = "2QDEorhtmjmhWrFEItrp4i";
 
-[Verso 2]
-Baila mi gente de Bogotá a Caracas
-Retumba el bajo, suenan las maracas
-Buenos Aires despierta el calor
-¡Puro rocanrol de corazón!`,
-      credits: "Composición: Cumbia Reverb • Producción: Vintage Reverb Studios • Grabado con micrófonos de cinta y amplificadores a válvulas."
-    },
-    {
-      id: "surfeando-en-la-nieve",
-      title: "Surfeando en la Nieve",
-      type: "Single Oficial",
-      duration: "3:18",
-      releaseYear: 2024,
-      bpm: 102,
-      cover: "/images/covers/official_cover.jpg",
-      audioPreview: "/audio/cumbia_reverb_preview.wav",
-      links: {
-        spotify: "https://open.spotify.com/artist/2QDEorhtmjmhWrFEItrp4i",
-        youtube: "https://www.youtube.com/channel/UCJDQ5L37qhZuBiu1fbeNc_Q",
-        apple: "https://music.apple.com"
-      },
-      tagline: "Surf psicodélico cruzando los Andes",
-      description: "Una travesía lisérgica donde la ola de surf rock se congela en las alturas andinas y se derrite al calor del güiro caribeño y los coros comunales.",
-      lyrics: `[Intro de guitarra surf con eco]
-[Verso 1]
-Frío en la cumbre, fuego en la piel
-Montado en la tabla de un carrusel
-Nieve que cae al ritmo del güiro
-En cada compás se escapa un suspiro...
+export const albums = [
+  {
+    // PLACEHOLDER: EP nuevo en camino. Título, portada, fecha y temas por confirmar.
+    slug: "nuevo-ep",
+    title: "Nuevo EP",
+    type: "EP",
+    upcoming: true,
+    releaseDate: null,
+    cover: "/images/covers/ep-proximamente.svg",
+    spotifyUrl: null,
+    embedUrl: null,
+    tracks: []
+  },
+  {
+    slug: "sancocho-pa-ratas",
+    title: "Sancocho Pa' Ratas",
+    type: "Álbum",
+    releaseDate: "2025-09-25", // Spotify: 25 de septiembre de 2025
+    palette: "sancocho",       // colores de su portada en su página
+    aliases: ["/sancocho", "/musica"],
+    legacyHash: "musica",
+    cover: SANCOCHO_COVER,
+    spotifyUrl: "https://open.spotify.com/album/4QuTFlEuHSPElog6YmUZxb",
+    embedUrl: "https://open.spotify.com/embed/album/4QuTFlEuHSPElog6YmUZxb?utm_source=generator&theme=0",
+    tracks: [
+      ["si-era-tan-listo", "Si Era Tan Listo", "5pssssi3vu4ELrYzBNaqLm", "1:58"],
+      ["fuego-rojo", "Fuego Rojo", "4Pu4QqYgYrvu6V22cNLrbF", "3:18"],
+      ["la-arana", "La Araña", "0aihLpQfQHktmfNOFx5gR7", "4:40"],
+      ["presunto-persecuto", "Presunto Persecuto", "4TfbRs4tZBNHVULuSnT29I", "5:37"],
+      ["surfeando-en-la-nieve", "Surfeando en la Nieve", "6gx4gadyfw1rEWfVRa3hoY", "2:59"],
+      ["ana-funk", "Ana Funk (Cenizas de un Recuerdo)", "60GdyNFXmJDrqcfxBSUtCA", "2:50"],
+      ["cumbia-reverb", "Cumbia Reverb", "4VfZv53L30cKAkn8jRJJIt", "3:40"],
+      ["el-bazuko", "El Bazuko", "3FVaZg7xOwzht8aYenDZXk", "3:59"],
+      ["primavera-fria", "Primavera Fria", "5dXF0gzNIS3F2uZBpDqP0d", "3:05"],
+      ["ciudad-sin-luz", "Ciudad Sin Luz", "0UyypPQ7nxtSQ36bQLf0Cc", "4:48"],
+      ["de-malas", "De Malas", "7lwyK1R5M82HmQW37N4WVb", "3:18"],
+      ["el-fin-del-mundo", "El Fin del Mundo", "4F3UMA1d97XDHCIohtYvOw", "3:55"]
+    ].map(([id, title, spotifyId, duration]) => track(id, title, spotifyId, duration, SANCOCHO_COVER))
+  }
+];
 
-[Coro]
-Surfeando en la nieve, volando sin alas
-La cumbia nos cura de todas las balas
-Surfeando en la nieve, ola de cristal
-El eco nos guía en este ritual!`,
-      credits: "Guitarras y arreglos: Miguel • Letra: Celta & Matias • Percusión: Ruben."
-    },
-    {
-      id: "fuego-rojo",
-      title: "Fuego Rojo",
-      type: "Single Oficial",
-      duration: "3:55",
-      releaseYear: 2023,
-      bpm: 98,
-      cover: "/images/covers/official_cover.jpg",
-      audioPreview: "/audio/cumbia_reverb_preview.wav",
-      links: {
-        spotify: "https://open.spotify.com/artist/2QDEorhtmjmhWrFEItrp4i",
-        youtube: "https://www.youtube.com/channel/UCJDQ5L37qhZuBiu1fbeNc_Q",
-        apple: "https://music.apple.com"
-      },
-      tagline: "Chicha eléctrica y trance amazónico",
-      description: "Ritmo tropical eléctrico con sintetizadores retro, bajos profundos y una aceleración final diseñada para hacer estallar la pista de baile.",
-      lyrics: `[Sintetizador cósmico]
-[Verso 1]
-Rojo el volcán, roja la luna
-Como esta noche no habrá ninguna
-Chicha salvaje, calor de neón
-Prende la mecha de este fiestón...
+// Duración total en minutos, calculada de las pistas (ej: 44)
+const toMinutes = tracks => Math.round(
+  tracks.reduce((sum, t) => {
+    const [m, s] = t.duration.split(':').map(Number);
+    return sum + m * 60 + s;
+  }, 0) / 60
+);
+albums.forEach(album => {
+  album.minutes = toMinutes(album.tracks);
+  album.year = album.releaseDate ? album.releaseDate.slice(0, 4) : null;
+});
 
-[Coro]
-¡Fuego rojo en la tarima!
-¡Fuego rojo que te anima!
-Baila la cumbia sin compasión
-Esto es veneno para el corazón!`,
-      credits: "Teclados y sintetizadores: Javier • Bajo: Matias • Grabación de timbales: Ruben."
-    },
-    {
-      id: "si-era-tan-listo",
-      title: "Si Era Tan Listo",
-      type: "Single Oficial",
-      duration: "3:29",
-      releaseYear: 2023,
-      bpm: 94,
-      cover: "/images/covers/official_cover.jpg",
-      audioPreview: "/audio/cumbia_reverb_preview.wav",
-      links: {
-        spotify: "https://open.spotify.com/artist/2QDEorhtmjmhWrFEItrp4i",
-        youtube: "https://www.youtube.com/channel/UCJDQ5L37qhZuBiu1fbeNc_Q",
-        apple: "https://music.apple.com"
-      },
-      tagline: "Sátira bailable con filo callejero",
-      description: "Groove arrastrado, letra punzante y contrapunto de guitarras distorsionadas con órgano psicodélico. Una dedicatoria rítmica a los que creen saberlo todo.",
-      lyrics: `[Verso 1]
-Hablaba mucho, juraba saber
-Cómo ganarle al amanecer
-Llegó la cumbia, le dio un mareo
-Se fue de espaldas en el bailoteo...
+// Próximos primero, luego del más nuevo al más viejo; los discos sin fecha van al final
+albums.sort((a, b) =>
+  Number(!!b.upcoming) - Number(!!a.upcoming) ||
+  (b.releaseDate ?? '').localeCompare(a.releaseDate ?? ''));
 
-[Coro]
-Si era tan listo, ¿por qué no bailó?
-La pista ardiendo y él se congeló
-Si era tan listo, ¿por qué tropezó?
-Con esta cumbia nadie se salvó!`,
-      credits: "Letra y voz: Celta • Bajo y coros: Matias • Arreglos rítmicos: Cumbia Reverb."
-    }
-  ]
-};
+// Último disco ya publicado: el que se promociona en la Home y el hero
+export const latestAlbum = albums.find(a => !a.upcoming);
+export const albumPath = album => `/discos/${album.slug}`;
+export const albumMeta = album => [
+  album.upcoming ? 'Próximamente' : album.year,
+  album.type,
+  album.tracks.length && `${album.tracks.length} temas`,
+  album.tracks.length && `${album.minutes} min`
+].filter(Boolean).join(' · ');
+
+export const playableTracks = albums.flatMap(a => a.tracks).filter(t => t.audioPreview);

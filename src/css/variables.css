@@ -3,34 +3,43 @@
    ========================================================================== */
 
 :root {
-  /* Color Palette - Neon Tropical Psych / Deep Vinyl */
-  --color-bg-primary: #07090e;
-  --color-bg-secondary: #0b0f17;
-  --color-bg-surface: #101522;
-  --color-bg-surface-elevated: #161d2d;
-  
-  /* Glassmorphism Surfaces */
-  --color-bg-glass: rgba(11, 15, 23, 0.78);
-  --color-bg-glass-card: rgba(18, 24, 37, 0.65);
-  --color-bg-glass-hover: rgba(28, 36, 54, 0.85);
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-border-card: rgba(255, 255, 255, 0.12);
-  --color-border-glow-cyan: rgba(0, 240, 255, 0.4);
-  --color-border-glow-magenta: rgba(255, 42, 133, 0.4);
+  /* Paleta oficial "Alto Voltaje": ver PALETA.md. */
+  --color-bg-primary: #0b0b0c;
+  --color-bg-secondary: #121214;
+  --color-bg-surface: #1a1a1d;
+  --color-bg-surface-elevated: #242428;
 
-  /* Neon Vibration & Accent Colors */
-  --color-neon-cyan: #00f0ff;
-  --color-neon-magenta: #ff2a85;
-  --color-solar-gold: #ffb703;
-  --color-tropical-green: #06d6a0;
-  --color-electric-purple: #9d4edd;
-  --color-surf-orange: #fb5607;
+  /* Canales RGB para transparencias: rgba(var(--rgb-cromo), 0.12) */
+  --rgb-rayo: 255, 208, 0;
+  --rgb-sancocho: 242, 51, 44;
+  --rgb-cromo: 201, 204, 209;
+  --rgb-hueso: 244, 241, 234;
+  --rgb-bg: 11, 11, 12;
+  --rgb-success: 107, 191, 89;
+
+  /* Glassmorphism Surfaces */
+  --color-bg-glass: rgba(18, 18, 20, 0.78);
+  --color-bg-glass-card: rgba(26, 26, 29, 0.65);
+  --color-bg-glass-hover: rgba(36, 36, 40, 0.85);
+  --color-border-subtle: rgba(var(--rgb-hueso), 0.08);
+  --color-border-card: rgba(var(--rgb-hueso), 0.12);
+  --color-border-glow-rayo: rgba(var(--rgb-rayo), 0.4);
+  --color-border-glow-sancocho: rgba(var(--rgb-sancocho), 0.4);
+
+  /* Acentos */
+  --color-sancocho: #f2332c;  /* principal: rojo amplificador */
+  --color-rayo: #ffd000;      /* interacción: hover, foco, activo (amarillo eléctrico) */
+  --color-cromo: #c9ccd1;     /* secundario: fechas y badges */
+  --color-carmesi: #c4161c;
+  --color-hueso: #f4f1ea;
+  --color-sangre: #7a0f12;
+  --color-success: #6bbf59;
 
   /* Typography Colors */
-  --color-text-main: #f8fafc;
-  --color-text-subtle: #cbd5e1;
-  --color-text-muted: #94a3b8;
-  --color-text-dim: #64748b;
+  --color-text-main: #f4f1ea;
+  --color-text-subtle: #dcd6cc;
+  --color-text-muted: #aaa49b;
+  --color-text-dim: #7c776f;
 
   /* Fonts */
   --font-heading: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -38,17 +47,12 @@
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Gradients */
-  --gradient-reverb: linear-gradient(135deg, #00f0ff 0%, #ff2a85 50%, #ffb703 100%);
-  --gradient-reverb-h: linear-gradient(90deg, #00f0ff 0%, #ff2a85 55%, #ffb703 100%);
-  --gradient-electric: linear-gradient(135deg, #ff2a85 0%, #9d4edd 100%);
-  --gradient-cyan-teal: linear-gradient(135deg, #00f0ff 0%, #06d6a0 100%);
-  --gradient-dark-fade: linear-gradient(180deg, rgba(7, 9, 14, 0) 0%, rgba(7, 9, 14, 0.95) 100%);
-  --gradient-card-border: linear-gradient(135deg, rgba(0, 240, 255, 0.35), rgba(255, 42, 133, 0.35), rgba(255, 183, 3, 0.2));
+  --gradient-reverb: linear-gradient(135deg, #c4161c 0%, #7a0f12 100%);
+  --gradient-fuego: linear-gradient(135deg, #f2332c 0%, #7a0f12 100%);
 
   /* Glows & Shadows */
-  --glow-cyan: 0 0 25px rgba(0, 240, 255, 0.45);
-  --glow-magenta: 0 0 25px rgba(255, 42, 133, 0.45);
-  --glow-gold: 0 0 25px rgba(255, 183, 3, 0.45);
+  --glow-rayo: 0 0 25px rgba(var(--rgb-rayo), 0.45);
+  --glow-sancocho: 0 0 25px rgba(var(--rgb-sancocho), 0.45);
   --shadow-card: 0 16px 40px -10px rgba(0, 0, 0, 0.7);
   --shadow-dropdown: 0 20px 48px -8px rgba(0, 0, 0, 0.85);
 

@@ -1,69 +1,26 @@
 // src/data/tourData.js
-// Fechas de conciertos, festivales y presentaciones en vivo
+// Fechas de conciertos. Solo fechas confirmadas por la banda.
+// Campos: id, date (texto visible), rawDate (YYYY-MM-DD), city, venue,
+//         status, statusType ('success' | 'warning' | 'danger' | 'neutral'), ticketUrl, ticketText
 
 export const tourData = {
-  tourTitle: "Gira Frecuencia Sudaca 2024 - 2025",
-  description: "La caravana psicodélica de Cumbia Reverb llevando el rocanrol sudamericano a salas y festivales.",
+  description: "Próximas presentaciones en vivo de Cumbia Reverb.",
   upcomingShows: [
     {
-      id: "show-1",
-      date: "18 OCT 2024",
-      rawDate: "2024-10-18",
-      city: "Bogotá, Colombia",
-      venue: "Teatro La Media Torta / Festival Tropical",
-      status: "Últimas Entradas",
-      statusType: "warning",
-      ticketUrl: "#booking",
-      ticketText: "Entradas"
-    },
-    {
-      id: "show-2",
-      date: "02 NOV 2024",
-      rawDate: "2024-11-02",
+      id: "show-2026-11-14",
+      date: "14 NOV 2026",
+      rawDate: "2026-11-14",
       city: "Medellín, Colombia",
-      venue: "Parque de los Deseos / Noche de Chicha & Reverb",
-      status: "Boletos Disponibles",
-      statusType: "success",
-      ticketUrl: "#booking",
-      ticketText: "Entradas"
-    },
-    {
-      id: "show-3",
-      date: "23 NOV 2024",
-      rawDate: "2024-11-23",
-      city: "Buenos Aires, Argentina",
-      venue: "Niceto Club / Fiesta Invasión Psicodélica",
-      status: "Agotado",
-      statusType: "danger",
-      ticketUrl: "#booking",
-      ticketText: "Sold Out"
-    },
-    {
-      id: "show-4",
-      date: "14 DIC 2024",
-      rawDate: "2024-12-14",
-      city: "Caracas, Venezuela",
-      venue: "Concha Acústica de Bello Monte",
-      status: "Boletos Disponibles",
-      statusType: "success",
-      ticketUrl: "#booking",
-      ticketText: "Entradas"
-    },
-    {
-      id: "show-5",
-      date: "25 ENE 2025",
-      rawDate: "2025-01-25",
-      city: "Ciudad de México, México",
-      venue: "Foro Indie Rocks! / Frecuencia Latina Fest",
+      venue: "Parque Biblioteca La Quintana · Sonido Bestial Contra la Violencia · 12 PM – 7 PM",
       status: "Próximamente",
       statusType: "neutral",
-      ticketUrl: "#booking",
-      ticketText: "Preventa"
+      ticketUrl: null,
+      ticketText: "Más info"
     }
   ],
   bookingCta: {
-    title: "¿Quieres llevar a Cumbia Reverb a tu ciudad o festival?",
-    subtitle: "Disponibles para festivales internacionales, salas de conciertos y eventos culturales privados.",
+    title: "¿Quieres a Cumbia Reverb en tu festival o evento?",
+    subtitle: "Disponibles para festivales, salas de conciertos y eventos de empresa.",
     buttonText: "Cotizar Fecha con la Banda"
   }
 };

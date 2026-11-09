@@ -1,7 +1,8 @@
 // src/components/MembersSection.js
 // Sección interactiva de integrantes con micro-interacciones inspiradas en Pato el Pez
 
-import { bandData } from '../data/bandData.js';
+import { bandData, isPending } from '../data/bandData.js';
+import { flag } from './flags.js';
 
 export function renderMembersSection() {
   return `
@@ -13,10 +14,10 @@ export function renderMembersSection() {
           <span class="section-tag">ALINEACIÓN OFICIAL</span>
           <h2 class="section-title">
             <span>Los Músicos de</span>
-            <span class="text-gradient-reverb">Cumbia Reverb</span>
+            <span class="text-reverb">Cumbia Reverb</span>
           </h2>
           <p class="section-subtitle">
-            Cinco identidades, tres naciones y un solo pulso hipnótico. Conoce a los creadores de la frecuencia surf cumbiera.
+            Cuatro músicos de Colombia, Argentina y Venezuela, desde ${bandData.location}.
           </p>
         </div>
 
@@ -28,7 +29,7 @@ export function renderMembersSection() {
                 <div class="member-photo-overlay"></div>
                 
                 <div class="member-flag-badge">
-                  <span>${member.flag}</span>
+                  <span>${flag(member.flag)}</span>
                   <span>${member.country}</span>
                 </div>
               </div>
@@ -36,16 +37,7 @@ export function renderMembersSection() {
               <div class="member-info">
                 <h3 class="member-name">${member.name}</h3>
                 <p class="member-role">${member.role}</p>
-
-                <p class="member-quote">"${member.quote}"</p>
-
-                <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.55; margin-bottom: 16px;">
-                  ${member.bio}
-                </p>
-
-                <div class="member-gear">
-                  <strong>Equipamiento:</strong> ${member.gear}
-                </div>
+                ${isPending(member.bio) ? '' : `<p class="member-bio">${member.bio}</p>`}
               </div>
             </article>
           `).join('')}

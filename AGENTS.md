@@ -22,46 +22,38 @@ Este archivo sirve como memoria persistente, contexto de arquitectura y guía op
 
 ## 👥 2. Alineación Oficial de la Banda (Lineup)
 
-1. **Celta** (Colombia 🇨🇴) — *Voz Principal & Energía Escénica*
-   - Micrófono Shure SM58 / Efecto Roland Space Echo vintage.
-2. **Miguel** (Colombia 🇨🇴) — *Guitarra Surf & Reverb*
-   - Fender Jaguar '65 / Fender Twin Reverb '68 / Tanque Spring Reverb a bulbos.
-3. **Javier** (Colombia 🇨🇴) — *Teclados & Sintetizadores Tropicales*
-   - Nord Electro 6D / Korg Minilogue XD / Leslie Simulator.
-4. **Matias** (Argentina 🇦🇷) — *Bajo Eléctrico & Groove Pulmón*
-   - Fender Precision Bass / Ampeg SVT-CL / Darkglass Vintage.
-5. **Ruben** (Venezuela 🇻🇪) — *Batería, Timbales & Percusión*
-   - Batería Ludwig Classic Maple / Timbales LP Tito Puente / Güiro artesanal metálico.
+Base: **Medellín, Colombia**. Banda de canciones originales.
+
+1. **Celta** (Colombia 🇨🇴) — Voz
+2. **Miguel** (Colombia 🇨🇴) — Guitarra
+3. **Matias** (Argentina 🇦🇷) — Bajo.
+4. **Ruben** (Venezuela 🇻🇪) — Batería
+
+> [!IMPORTANT]
+> **Regla de contenido:** no inventar datos (bios, citas, equipos, fechas, cifras, vistas, productos, precios, letras, créditos, fotos o audios generados). Lo que la banda no haya confirmado va como placeholder (`Lorem ipsum` / `null`) y la UI lo oculta o lo marca como pendiente.
+
+**Objetivos:** darse a conocer, tocar en festivales grandes de Antioquia y Colombia, y organizar eventos propios de 500+ personas. No hacen matrimonios; sí eventos de empresa.
 
 ---
 
 ## 🔗 3. Canales Digitales & IDs Oficiales
 
-- **Spotify Artist ID:** `2QDEorhtmjmhWrFEItrp4i`
-  - URL Perfil: `https://open.spotify.com/artist/2QDEorhtmjmhWrFEItrp4i`
-  - Canciones en catálogo:
-    1. *Cumbia Reverb* (Single / Himno)
-    2. *Surfeando en la Nieve*
-    3. *Fuego Rojo*
-    4. *Si Era Tan Listo*
-- **YouTube Channel ID:** `UCJDQ5L37qhZuBiu1fbeNc_Q`
-  - URL Canal: `https://www.youtube.com/channel/UCJDQ5L37qhZuBiu1fbeNc_Q`
-  - Enlace Suscripción Rápida: `https://www.youtube.com/channel/UCJDQ5L37qhZuBiu1fbeNc_Q?sub_confirmation=1`
+- **Spotify Artist ID:** `2QDEorhtmjmhWrFEItrp4i` (`https://open.spotify.com/artist/2QDEorhtmjmhWrFEItrp4i`)
+  - Disco: *Sancocho Pa' Ratas*, 12 temas (`https://open.spotify.com/album/4QuTFlEuHSPElog6YmUZxb`). Portada: `public/images/covers/official_cover.jpg`.
+  - Tracklist completo en `src/data/musicData.js`.
+- **YouTube:** pendiente, el canal está por crear (`bandData.social.youtube = null`).
 - **Instagram:** `@cumbia_reverb` (`https://www.instagram.com/cumbia_reverb/`)
-- **Contacto Booking:** `booking@cumbiareverb.com`
+- **TikTok:** `@reverb.cumbia` (`https://www.tiktok.com/@reverb.cumbia`)
+- **Contacto Booking:** `booking@cumbiareverb.com` · Persona de contacto y WhatsApp por definir (la página de contacto muestra "Por definir").
 
 ---
 
 ## 🎨 4. Sistema de Diseño Visual (Design Tokens)
 
-- **Filosofía:** Psicodelia Tropical Neón sobre Vinilo Profundo con Glassmorphism (`backdrop-filter: blur(...)`).
-- **Paleta de Colores:**
-  - Fondo primario: `--color-bg-primary: #07090e`
-  - Superficie midnight: `--color-bg-surface: #101522`
-  - Cian Neón (Onda Reverb): `--color-neon-cyan: #00f0ff`
-  - Magenta Neón Eléctrico: `--color-neon-magenta: #ff2a85`
-  - Oro Solar Tropical: `--color-solar-gold: #ffb703`
-  - Verde Selva: `--color-tropical-green: #06d6a0`
+> [!IMPORTANT]
+> **Colores:** lee siempre [`PALETA.md`](PALETA.md) antes de tocar colores. Es la fuente oficial de la paleta (portada de *Sancocho Pa' Ratas* + logos), sus usos y reglas de contraste. Usa solo los tokens de `src/css/variables.css` (`--color-sancocho`, `--color-rayo`, `--color-cromo`, `--color-hueso`, `rgba(var(--rgb-…), α)`); no escribas hex sueltos. Si cambias la paleta, actualiza `PALETA.md` y `variables.css` juntos.
+
+- **Filosofía:** Rock de escenario ("Alto Voltaje"): negro escenario, el rojo de la portada como identidad, amarillo eléctrico para la interacción y cromo como detalle, y Glassmorphism (`backdrop-filter: blur(...)`).
 - **Tipografías:**
   - Títulos y Acentos: `'Syne', sans-serif` (Google Fonts, weights: 700, 800, 900)
   - Textos y UI: `'Plus Jakarta Sans', sans-serif` (Google Fonts, weights: 400, 500, 600, 700, 800)
@@ -69,82 +61,36 @@ Este archivo sirve como memoria persistente, contexto de arquitectura y guía op
 > [!IMPORTANT]
 > **Regla de Estilos:** Se utiliza Vanilla CSS modular con variables en `src/css/variables.css`. No usar TailwindCSS a menos que se solicite explícitamente.
 
+> [!NOTE]
+> **21st.dev:** se usa solo como catálogo de inspiración (vía su MCP o el "copy prompt"). Sus componentes vienen en React + Tailwind: se reescriben como `renderX()`/`initX()` en JS vanilla con CSS sobre los tokens de `PALETA.md`, respetando `prefers-reduced-motion`. No se instalan React, Tailwind ni shadcn.
+
 ---
 
 ## 📂 5. Estructura del Código
 
-```
-c:/Projects/CR_Site/
-├── index.html                   # Entry point con SEO semántico y Schema.org JSON-LD
-├── package.json                 # Dependencias y scripts Vite
-├── vite.config.js               # Configuración Vite (puerto 3000, build a dist/)
-├── AGENTS.md                    # Memoria persistente del proyecto (este archivo)
-├── .gitignore                   # Exclusión de node_modules, dist, logs
-├── public/
-│   ├── favicon.svg              # Isotipo vectorial de Cumbia Reverb
-│   ├── audio/
-│   │   └── cumbia_reverb_preview.wav  # Pista de audio sintetizada real
-│   ├── images/
-│   │   ├── hero/cumbia_hero_banner.jpg
-│   │   ├── covers/official_avatar.jpg, official_cover.jpg
-│   │   ├── members/celta.jpg, javier.jpg, matias.jpg, miguel.jpg, ruben.jpg
-│   │   └── merch/tshirt.jpg, vinyl.jpg
-│   └── docs/
-└── src/
-    ├── css/
-    │   ├── reset.css            # Normalización y custom scrollbars
-    │   ├── variables.css        # Sistema de tokens y colores
-    │   ├── components.css       # Tarjetas, botones luminosos, player flotante, modales
-    │   └── main.css             # Layouts responsivos y breakpoints
-    ├── data/
-    │   ├── bandData.js          # Datos y biografía de la banda e integrantes
-    │   ├── musicData.js         # Discografía, letras de canciones y créditos
-    │   ├── videosData.js        # Hub de YouTube, clips y shorts
-    │   ├── tourData.js          # Fechas de gira y estado de boletos
-    │   ├── merchData.js         # Productos de merchandising y FAQ
-    │   └── riderData.js         # Input list (14 CH), Stage Plot y monitoreo
-    ├── components/
-    │   ├── Navbar.js            # Menú superior fijo con glassmorphism y drawer móvil
-    │   ├── Hero.js              # Canvas interactivo con osciloscopio de ondas sonoras
-    │   ├── AudioPlayer.js       # Reproductor persistente inferior (cumbiaPlayer API)
-    │   ├── MusicSection.js      # Catálogo con preview de audio y embed Spotify
-    │   ├── VideosSection.js     # Sección YouTube con CTA de suscripción rápida
-    │   ├── MembersSection.js    # Fichas interactivas de músicos
-    │   ├── TourSection.js       # Conciertos y llamadas a booking
-    │   ├── MerchSection.js      # Catálogo con generador de pedidos por WhatsApp
-    │   ├── EpkSection.js        # Pestañas de Rider Técnico, Stage Plot y descargas
-    │   ├── BookingModal.js      # Formulario de cotización de fechas
-    │   ├── LyricsModal.js       # Modal para leer letras completas de los temas
-    │   └── Footer.js            # Redes, newsletter y pie de página
-    └── main.js                  # Ensamblador principal y listener DOMContentLoaded
-```
+Vite + JS vanilla, sin framework. Páginas en `src/pages/`, componentes `renderX()`/`initX()` en `src/components/`, datos de la banda en `src/data/`, registro de rutas en `src/routes.js` (fuente única de navegación) y shell persistente en `src/main.js` (el reproductor sigue sonando al navegar). `brand/` guarda los logos originales y no se publica; un MP3 real en `public/audio/` activa el reproductor.
+
+### ➕ Agregar una nueva funcionalidad / página
+
+1. Crea el componente con `renderX()` (retorna HTML) y opcionalmente `initX()` (conecta eventos; puede retornar una función de limpieza que se ejecuta al salir de la página).
+2. Agrega una entrada en `featureRoutes` de `src/routes.js` (`path`, `title`, `menuLabel`, `icon`, `description`, `group`).
+3. Listo: navbar, menú móvil, footer y la tarjeta en la página de inicio se generan solos.
+
+Menú actual: **Banda · Discos · Gira · Contacto**. Una ruta con `children` se muestra como desplegable (Discos).
+
+### 💿 Agregar un disco
+
+Agrega un objeto al arreglo `albums` de `src/data/musicData.js` (mismos campos que *Sancocho Pa' Ratas*). Su página `#/discos/<slug>`, su entrada en el desplegable "Discos" y su tarjeta en `#/discos` se generan solas. Los discos se ordenan solos por `releaseDate` (más nuevo primero); el último disco publicado es el que se promociona en la Home y el hero. Un disco anunciado que aún no sale lleva `upcoming: true` (hoy: el nuevo EP, placeholder sin título, fecha ni temas). Con `palette` la página del disco usa los colores de su portada (PALETA.md §6).
+
+> [!NOTE]
+> Las anclas antiguas de la versión one-page (`#musica`, `#tienda`, …) redirigen automáticamente a la nueva ruta mediante `legacyHash`.
 
 ---
 
-## 🛠️ 6. Comandos y Flujo de Trabajo
+## 🌐 6. Despliegue (Cloudflare Workers)
 
-- **Iniciar servidor de desarrollo:**
-  ```powershell
-  npm run dev
-  # o npx vite --port 3000
-  ```
-- **Compilar para producción:**
-  ```powershell
-  npm run build
-  ```
-- **Previsualizar bundle de producción:**
-  ```powershell
-  npm run preview
-  ```
-
----
-
-## 🌐 7. Despliegue en Producción & Dominio (cumbiareverb.com)
-
-- **Alojamiento Recomendado:** Netlify o Vercel conectado al repositorio de GitHub (`rubenoliveros/cumbia-reverb-web`).
-- **Comando de Build:** `npm run build`
-- **Publish Directory:** `dist`
-- **Configuración DNS en GoDaddy:**
-  - Registro `A` (`@`) -> IP del proveedor (Netlify: `75.2.60.5`, Vercel: `76.76.21.21`).
-  - Registro `CNAME` (`www`) -> Subdominio asignado (ej. `cumbia-reverb.netlify.app`).
-  - SSL/HTTPS gestionado y renovado automáticamente.
+- **Hosting:** Cloudflare Workers (Static Assets) con Workers Builds conectado a GitHub (`rubenoliveros/cumbia-reverb-web`). Cada merge a `main` se publica solo: build `npm run build`, deploy `npx wrangler deploy` (config en `wrangler.jsonc`, sirve `dist/`).
+- **Headers de seguridad:** `public/_headers` (CSP, nosniff, Referrer-Policy, Permissions-Policy, frame-ancestors). Si agregas un servicio externo (fuentes, embeds, imágenes remotas), agrégalo a la CSP o el navegador lo bloqueará.
+- **Versión de prueba (hoy):** el sitio vive en `cumbia-reverb.<cuenta>.workers.dev`, sin el dominio. `src/data/siteConfig.js` controla la etiqueta "Versión de prueba", la semana y el enlace de feedback (grupo de WhatsApp); `X-Robots-Tag: noindex` en `_headers` evita que Google la indexe.
+- **Lanzamiento en cumbiareverb.com:** `preview.enabled = false`, borrar la línea `X-Robots-Tag` de `_headers` y agregar el dominio como Custom Domain del Worker en Cloudflare.
+- **Correo:** Cloudflare Email Routing reenvía `booking@cumbiareverb.com`; el dominio no envía correo (DMARC `p=reject`).

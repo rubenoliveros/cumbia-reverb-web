@@ -19,6 +19,149 @@
   background: var(--color-bg-secondary);
 }
 
+/* Feature pages rendered by the router (clear the fixed navbar) */
+.page {
+  padding-top: var(--nav-height);
+  min-height: 100vh;
+}
+
+/* Landing page: feature cards generated from routes.js */
+.feature-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+  color: var(--color-text-main);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-glow-rayo);
+}
+
+.feature-card-icon {
+  font-size: 2rem;
+}
+
+.feature-card-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.feature-card-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.feature-card-cta {
+  font-weight: 700;
+  color: var(--color-rayo);
+}
+
+/* Contact page: one card per topic (booking, prensa…) */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+}
+
+.contact-card-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.contact-card-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.contact-card-person {
+  font-size: 0.95rem;
+  color: var(--color-text-subtle);
+  flex: 1;
+}
+
+.contact-card-person strong {
+  color: var(--color-sancocho);
+}
+
+.contact-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.contact-card-actions .btn {
+  justify-content: center;
+}
+
+.contact-social {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: var(--color-text-muted);
+}
+
+.contact-social-icons {
+  display: flex;
+  gap: 14px;
+}
+
+.contact-social-icon {
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-bg-glass-card);
+  border: 1px solid var(--color-border-card);
+  color: var(--color-text-main);
+  transition: color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.contact-social-icon:hover,
+.contact-social-icon:focus-visible {
+  color: var(--color-rayo);
+  border-color: var(--color-border-glow-rayo);
+  box-shadow: var(--glow-rayo);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-social-icon:hover {
+    transform: none;
+  }
+}
+
+.mobile-drawer-link.active {
+  color: var(--color-rayo);
+}
+
 /* Background Ambient Glow Accents */
 .ambient-glow {
   position: absolute;
@@ -31,20 +174,20 @@
   z-index: 0;
 }
 
-.ambient-cyan {
-  background: var(--color-neon-cyan);
+.ambient-rayo {
+  background: var(--color-rayo);
   top: -100px;
   left: -100px;
 }
 
 .ambient-magenta {
-  background: var(--color-neon-magenta);
+  background: var(--color-sancocho);
   bottom: -100px;
   right: -100px;
 }
 
 .ambient-gold {
-  background: var(--color-solar-gold);
+  background: var(--color-hueso);
   top: 30%;
   right: 10%;
 }
@@ -147,6 +290,15 @@
 
 /* Small Mobiles (max-width: 480px) */
 @media (max-width: 480px) {
+  .nav-brand-logo {
+    height: 34px;
+  }
+
+  #navBookingBtn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
   .hero-actions {
     flex-direction: column;
     width: 100%;

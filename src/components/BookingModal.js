@@ -10,7 +10,7 @@ export function renderBookingModal() {
         <button class="modal-close-btn" id="closeBookingModalBtn" aria-label="Cerrar">&times;</button>
 
         <div style="margin-bottom: 24px;">
-          <span class="badge badge-cyan" style="margin-bottom: 8px;">BOOKING & CONTRATACIONES</span>
+          <span class="badge badge-cromo" style="margin-bottom: 8px;">BOOKING & CONTRATACIONES</span>
           <h3 style="font-size: 1.8rem; font-weight: 900; margin-bottom: 6px;">Cotizar Concierto</h3>
           <p style="font-size: 0.92rem; color: var(--color-text-muted);">
             Lleva a Cumbia Reverb a tu festival, sala de conciertos o evento. Completa los datos para enviar tu solicitud directamente.
@@ -41,7 +41,7 @@ export function renderBookingModal() {
               <option value="Festival de Música">Festival al Aire Libre / Masivo</option>
               <option value="Sala de Conciertos / Club">Sala de Conciertos / Club Nocturno</option>
               <option value="Evento Cultural / Institucional">Evento Cultural o Universitario</option>
-              <option value="Fiesta Privada / Matrimonio">Fiesta Privada / Fiesta Temática</option>
+              <option value="Evento de Empresa">Evento de Empresa</option>
               <option value="Otro Formato">Otro Formato</option>
             </select>
           </div>
@@ -64,12 +64,13 @@ export function renderBookingModal() {
           </div>
 
           <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px;">
+            ${bandData.social.whatsappNumber ? `
             <button type="button" class="btn btn-whatsapp" id="sendBookingWhatsappBtn" style="flex: 1;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.07-.941.07-1.579-.001-3.056-.902-3.856-2.285-.027-.047-.052-.095-.076-.144-.457-.919-.472-1.928-.041-2.774.135-.266.39-.427.674-.427.102 0 .204.021.299.066.257.121.573.743.64 1.002.045.176.023.364-.061.517-.058.106-.134.195-.213.289-.092.109-.19.224-.135.39.117.352.535 1.01 1.085 1.488.584.507 1.139.73 1.472.842.148.05.297.027.4-.083.129-.138.314-.407.452-.619.123-.189.289-.226.471-.157.17.065 1.077.507 1.263.599.186.092.311.138.356.216.045.078.045.452-.099.858z"/>
               </svg>
               <span>Enviar por WhatsApp</span>
-            </button>
+            </button>` : ''}
 
             <button type="button" class="btn btn-secondary" id="sendBookingEmailBtn" style="flex: 1;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
