@@ -87,12 +87,10 @@ Agrega un objeto al arreglo `albums` de `src/data/musicData.js` (mismos campos q
 
 ---
 
-## 🌐 6. Despliegue en Producción & Dominio (cumbiareverb.com)
+## 🌐 6. Despliegue (Cloudflare Workers)
 
-- **Alojamiento Recomendado:** Netlify o Vercel conectado al repositorio de GitHub (`rubenoliveros/cumbia-reverb-web`).
-- **Comando de Build:** `npm run build`
-- **Publish Directory:** `dist`
-- **Configuración DNS en GoDaddy:**
-  - Registro `A` (`@`) -> IP del proveedor (Netlify: `75.2.60.5`, Vercel: `76.76.21.21`).
-  - Registro `CNAME` (`www`) -> Subdominio asignado (ej. `cumbia-reverb.netlify.app`).
-  - SSL/HTTPS gestionado y renovado automáticamente.
+- **Hosting:** Cloudflare Workers (Static Assets) con Workers Builds conectado a GitHub (`rubenoliveros/cumbia-reverb-web`). Cada merge a `main` se publica solo: build `npm run build`, deploy `npx wrangler deploy` (config en `wrangler.jsonc`, sirve `dist/`).
+- **Headers de seguridad:** `public/_headers` (CSP, nosniff, Referrer-Policy, Permissions-Policy, frame-ancestors). Si agregas un servicio externo (fuentes, embeds, imágenes remotas), agrégalo a la CSP o el navegador lo bloqueará.
+- **Versión de prueba (hoy):** el sitio vive en `cumbia-reverb.<cuenta>.workers.dev`, sin el dominio. `src/data/siteConfig.js` controla la etiqueta "Versión de prueba", la semana y el enlace de feedback (grupo de WhatsApp); `X-Robots-Tag: noindex` en `_headers` evita que Google la indexe.
+- **Lanzamiento en cumbiareverb.com:** `preview.enabled = false`, borrar la línea `X-Robots-Tag` de `_headers` y agregar el dominio como Custom Domain del Worker en Cloudflare.
+- **Correo:** Cloudflare Email Routing reenvía `booking@cumbiareverb.com`; el dominio no envía correo (DMARC `p=reject`).

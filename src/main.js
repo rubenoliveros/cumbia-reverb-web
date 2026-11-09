@@ -16,6 +16,7 @@ import { renderBookingModal, initBookingModal } from './components/BookingModal.
 import { renderLyricsModal, initLyricsModal } from './components/LyricsModal.js';
 import { renderAudioPlayer, initAudioPlayer } from './components/AudioPlayer.js';
 import { renderFooter, initFooter } from './components/Footer.js';
+import { renderPreviewBadge } from './components/PreviewBadge.js';
 
 function assembleApp() {
   const app = document.getElementById('app');
@@ -37,6 +38,9 @@ function assembleApp() {
     <!-- Modals -->
     ${renderBookingModal()}
     ${renderLyricsModal()}
+
+    <!-- Versión de prueba (siteConfig.preview) -->
+    ${renderPreviewBadge()}
 
     <!-- Global Floating Toast Notification -->
     <div class="toast-notice" id="globalToast" role="status" aria-live="polite"></div>

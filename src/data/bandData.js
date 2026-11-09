@@ -23,9 +23,9 @@ export const bandData = {
     instagramHandle: "@cumbia_reverb",
     tiktok: "https://www.tiktok.com/@reverb.cumbia",
     email: "booking@cumbiareverb.com",
-    // PLACEHOLDER: reemplazar por el número real de quien atienda booking antes de publicar.
-    // Formato internacional sin "+" (ej. 57300...).
-    whatsappNumber: "573555555555",
+    // PENDIENTE: número de quien atienda booking, formato internacional sin "+" (ej. 57300...).
+    // Mientras sea null, los botones de WhatsApp no aparecen y el contacto va por correo.
+    whatsappNumber: null,
     whatsappBookingText: "¡Hola Cumbia Reverb! Me gustaría cotizar un concierto / presentación en vivo con la banda."
   },
   // Página /contacto: una tarjeta por tema (modelo bigthief.net/contact).
