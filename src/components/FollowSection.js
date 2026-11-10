@@ -1,11 +1,11 @@
 // src/components/FollowSection.js
 // "Síguenos": va justo debajo del hero, antes de los integrantes.
-// Frase por definir (bandData.followCta.headline), tarjetas destacadas (Instagram, YouTube, Spotify)
-// y el resto de redes como íconos secundarios. Sin cifras de seguidores (regla de contenido).
+// Frase por definir (bandData.followCta.headline) y una tarjeta por red, en filas de tres;
+// la última fila se centra (1 tarjeta → al centro, 2 → centradas). Sin cifras de seguidores (regla de contenido).
 // Una red destacada sin URL se muestra como "Pronto" (no es enlace).
 
 import { bandData, isPending } from '../data/bandData.js';
-import { socialIcon, renderSocialLinks } from './socialIcons.js';
+import { socialIcon } from './socialIcons.js';
 
 const handleOf = url => '@' + url.replace(/\/+$/, '').split('/').pop().replace(/^@/, '');
 
@@ -13,9 +13,9 @@ const handleOf = url => '@' + url.replace(/\/+$/, '').split('/').pop().replace(/
 const MAIN = [
   { name: 'instagram', label: 'Instagram', what: 'Fotos y novedades de la banda', url: s => s.instagram, handle: s => s.instagramHandle ?? handleOf(s.instagram) },
   { name: 'youtube', label: 'YouTube', what: 'Videos de la banda', url: s => s.youtubeSubscribe ?? s.youtube, handle: () => bandData.name },
-  { name: 'spotify', label: 'Spotify', what: 'Toda nuestra música, y el EP nuevo apenas salga', url: s => s.spotify, handle: () => bandData.name }
+  { name: 'spotify', label: 'Spotify', what: 'Toda nuestra música, y el EP nuevo apenas salga', url: s => s.spotify, handle: () => bandData.name },
+  { name: 'tiktok', label: 'TikTok', what: 'Videos cortos de la banda', url: s => s.tiktok, handle: s => handleOf(s.tiktok) }
 ];
-const SECONDARY = ['tiktok'];
 
 function renderCard(n) {
   const href = n.url(bandData.social);
@@ -34,7 +34,6 @@ function renderCard(n) {
 
 export function renderFollowSection() {
   const { headline } = bandData.followCta;
-  const others = renderSocialLinks({ className: 'follow-strip-icon', size: 22, only: SECONDARY });
   return `
     <section class="section follow-section" id="siguenos">
       <div class="ambient-glow ambient-rayo"></div>
@@ -47,12 +46,6 @@ export function renderFollowSection() {
         <ul class="follow-grid">
           ${MAIN.map(renderCard).join('')}
         </ul>
-
-        ${others ? `
-        <div class="follow-strip-secondary">
-          <span class="follow-strip-more">También en</span>
-          ${others}
-        </div>` : ''}
       </div>
     </section>
   `;
