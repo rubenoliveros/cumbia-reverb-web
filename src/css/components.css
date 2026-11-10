@@ -2573,7 +2573,38 @@
   flex-wrap: wrap;
   gap: 16px;
 }
-.follow-strip-secondary { display: flex; gap: 12px; }
+.follow-strip-secondary { display: flex; align-items: center; gap: 12px; }
+.follow-strip-more {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+/* Botón de marca Instagram (los de Spotify y YouTube están arriba, junto a .btn) */
+.btn-instagram {
+  background: linear-gradient(45deg, #f09433, #dc2743 50%, #bc1888);
+  color: #fff;
+  font-weight: 700;
+}
+.btn-instagram:hover {
+  box-shadow: 0 0 20px rgba(220, 39, 67, 0.5);
+  transform: translateY(-2px);
+}
+.btn-youtube { font-weight: 700; }
+/* Red destacada aún sin URL: se ve igual pero no es clicable */
+.btn.is-soon { cursor: default; opacity: 0.85; }
+.btn.is-soon:hover { transform: none; box-shadow: none; }
+.btn-soon-tag {
+  margin-left: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 0, 0, 0.35);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
 .follow-strip-icon {
   display: inline-flex;
   align-items: center;

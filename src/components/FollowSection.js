@@ -44,25 +44,38 @@ export function renderFollowSection() {
   `;
 }
 
-// Franja debajo del hero: frase (bandData.followCta.headline), botón grande a Spotify,
-// Instagram y TikTok como íconos secundarios.
+// Franja debajo del hero: frase (bandData.followCta.headline), botones destacados
+// (Spotify, Instagram, YouTube) y el resto de redes como íconos secundarios.
+// Una red destacada sin URL se muestra como "Pronto" (placeholder, no es enlace).
+const STRIP_MAIN = [
+  { name: 'spotify', label: 'Seguir en Spotify', url: s => s.spotify },
+  { name: 'instagram', label: 'Seguir en Instagram', url: s => s.instagram },
+  { name: 'youtube', label: 'Seguir en YouTube', url: s => s.youtubeSubscribe ?? s.youtube }
+];
+
+const stripButton = ({ name, label, url }) => {
+  const href = url(bandData.social);
+  const inner = `${socialIcon(name, 20)}<span>${label}</span>`;
+  return href
+    ? `<a href="${href}" target="_blank" rel="noopener noreferrer" class="btn btn-${name}">${inner}</a>`
+    : `<span class="btn btn-${name} is-soon" aria-disabled="true" title="Canal por crear">${inner}<span class="btn-soon-tag">Pronto</span></span>`;
+};
+
 export function renderFollowStrip() {
   const { headline } = bandData.followCta;
-  const { spotify } = bandData.social;
+  const others = renderSocialLinks({ className: 'follow-strip-icon', size: 22, only: ['tiktok'] });
   return `
     <section class="follow-strip" aria-label="Síguenos en redes">
       <div class="container follow-strip-inner">
         <p class="follow-strip-headline${isPending(headline) ? ' is-pending' : ''}">${headline}</p>
         <div class="follow-strip-actions">
-          ${spotify ? `
-          <a href="${spotify}" target="_blank" rel="noopener noreferrer" class="btn btn-spotify">
-            ${socialIcon('spotify', 20)}
-            <span>Seguir en Spotify</span>
-          </a>` : ''}
-          <div class="follow-strip-secondary">
-            ${renderSocialLinks({ className: 'follow-strip-icon', size: 22, only: ['instagram', 'tiktok'] })}
-          </div>
+          ${STRIP_MAIN.map(stripButton).join('')}
         </div>
+        ${others ? `
+        <div class="follow-strip-secondary">
+          <span class="follow-strip-more">También en</span>
+          ${others}
+        </div>` : ''}
       </div>
     </section>
   `;
