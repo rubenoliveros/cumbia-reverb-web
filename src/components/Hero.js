@@ -4,7 +4,6 @@
 import { bandData, isPending } from '../data/bandData.js';
 import { latestAlbum, albumPath } from '../data/musicData.js';
 import { withFlags } from './flags.js';
-import { renderSocialLinks } from './socialIcons.js';
 
 export function renderHero() {
   return `
@@ -42,11 +41,6 @@ export function renderHero() {
           <button class="btn btn-secondary" id="heroBookingTrigger">
             <span>Cotizar Fecha</span>
           </button>
-        </div>
-
-        <div class="hero-social" aria-label="Síguenos en redes">
-          <span class="hero-social-label">Síguenos</span>
-          ${renderSocialLinks({ className: 'hero-social-icon', size: 20, only: ['instagram', 'spotify', 'tiktok'] })}
         </div>
       </div>
     </header>

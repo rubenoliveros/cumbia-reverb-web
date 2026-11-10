@@ -1,12 +1,12 @@
 // src/pages/HomePage.js
 // Página de inicio: quién es Cumbia Reverb.
-// Hero → la banda (estilo + integrantes) → el disco (teaser) → próximo concierto → síguenos en redes.
+// Hero → franja Síguenos → la banda (estilo + integrantes) → el disco (teaser) → próximo concierto → síguenos en redes.
 
 import { renderHero, initHeroCanvas } from '../components/Hero.js';
 import { renderNextShow, initNextShow } from '../components/NextShow.js';
 import { bandData, isPending } from '../data/bandData.js';
 import { latestAlbum as album, albumPath } from '../data/musicData.js';
-import { renderFollowSection } from '../components/FollowSection.js';
+import { renderFollowSection, renderFollowStrip } from '../components/FollowSection.js';
 import { flag } from '../components/flags.js';
 import { BAND_STYLES as STYLES } from './BandPage.js';
 
@@ -14,6 +14,8 @@ import { BAND_STYLES as STYLES } from './BandPage.js';
 export function renderHomePage() {
   return `
     ${renderHero()}
+
+    ${renderFollowStrip()}
 
     <section class="section" id="la-banda">
       <div class="ambient-glow ambient-magenta"></div>

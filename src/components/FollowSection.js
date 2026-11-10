@@ -1,9 +1,10 @@
 // src/components/FollowSection.js
+// renderFollowStrip(): franja de una sola acción debajo del hero (Spotify principal + íconos).
 // Llamado a seguir a la banda en redes: una tarjeta grande por red (Instagram, Spotify, TikTok).
 // Solo muestra las redes con URL en bandData.social. Sin cifras de seguidores (regla de contenido).
 
-import { bandData } from '../data/bandData.js';
-import { socialIcon } from './socialIcons.js';
+import { bandData, isPending } from '../data/bandData.js';
+import { socialIcon, renderSocialLinks } from './socialIcons.js';
 
 const handleOf = url => '@' + url.replace(/\/+$/, '').split('/').pop().replace(/^@/, '');
 
@@ -38,6 +39,30 @@ export function renderFollowSection() {
             </a>
           </li>`).join('')}
         </ul>
+      </div>
+    </section>
+  `;
+}
+
+// Franja debajo del hero: frase (bandData.followCta.headline), botón grande a Spotify,
+// Instagram y TikTok como íconos secundarios.
+export function renderFollowStrip() {
+  const { headline } = bandData.followCta;
+  const { spotify } = bandData.social;
+  return `
+    <section class="follow-strip" aria-label="Síguenos en redes">
+      <div class="container follow-strip-inner">
+        <p class="follow-strip-headline${isPending(headline) ? ' is-pending' : ''}">${headline}</p>
+        <div class="follow-strip-actions">
+          ${spotify ? `
+          <a href="${spotify}" target="_blank" rel="noopener noreferrer" class="btn btn-spotify">
+            ${socialIcon('spotify', 20)}
+            <span>Seguir en Spotify</span>
+          </a>` : ''}
+          <div class="follow-strip-secondary">
+            ${renderSocialLinks({ className: 'follow-strip-icon', size: 22, only: ['instagram', 'tiktok'] })}
+          </div>
+        </div>
       </div>
     </section>
   `;

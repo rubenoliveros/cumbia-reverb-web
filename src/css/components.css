@@ -2480,38 +2480,6 @@
 .audio-player-bar ~ .preview-badge { bottom: calc(var(--player-height) + 16px); }
 
 /* ===== Síguenos en redes (Hero + FollowSection.js) ===== */
-.hero-social {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin-top: -20px;
-}
-.hero-social-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-.hero-social-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--color-border-card);
-  color: var(--color-text-main);
-  transition: all var(--transition-smooth);
-}
-.hero-social-icon:hover,
-.hero-social-icon:focus-visible {
-  color: var(--color-rayo);
-  border-color: var(--color-border-glow-rayo);
-  transform: translateY(-2px);
-}
-
 .follow-grid {
   list-style: none;
   padding: 0;
@@ -2568,5 +2536,58 @@
   line-height: 1.5;
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-social-icon:hover, .follow-card:hover .follow-icon { transform: none; }
+  .follow-card:hover .follow-icon,
+  .follow-strip-icon:hover { transform: none; }
+}
+
+/* Franja de una sola acción: Spotify principal, Instagram/TikTok secundarios */
+.follow-strip {
+  position: relative;
+  padding: 56px 0;
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  background:
+    linear-gradient(90deg, rgba(var(--rgb-sancocho), 0.10), rgba(var(--rgb-rayo), 0.06) 50%, rgba(var(--rgb-sancocho), 0.10)),
+    var(--color-bg-secondary);
+}
+.follow-strip-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+}
+.follow-strip-headline {
+  max-width: 760px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.follow-strip-headline.is-pending { color: var(--color-text-dim); font-style: italic; }
+.follow-strip-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.follow-strip-secondary { display: flex; gap: 12px; }
+.follow-strip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-card);
+  color: var(--color-text-main);
+  transition: all var(--transition-smooth);
+}
+.follow-strip-icon:hover,
+.follow-strip-icon:focus-visible {
+  color: var(--color-rayo);
+  border-color: var(--color-border-glow-rayo);
+  transform: translateY(-2px);
 }

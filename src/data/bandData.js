@@ -60,6 +60,11 @@ export const bandData = {
     cover: "/images/covers/official_cover.jpg",
     favicon: "/favicon.svg"
   },
+  // Franja "Síguenos" del Home (debajo del hero, antes de los integrantes).
+  // PENDIENTE: frase por definir con la banda. Mientras sea Lorem, se muestra como recordatorio.
+  followCta: {
+    headline: "Lorem ipsum dolor sit amet — frase por definir con la banda"
+  },
   bio: {
     // PENDIENTE: biografía real escrita por la banda
     summary: LOREM,
