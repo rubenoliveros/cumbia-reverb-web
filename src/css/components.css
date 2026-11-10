@@ -2478,3 +2478,111 @@
 }
 .preview-badge-cta:hover, .preview-badge-cta:focus-visible { background: var(--color-hueso); }
 .audio-player-bar ~ .preview-badge { bottom: calc(var(--player-height) + 16px); }
+
+/* ===== Síguenos en redes (Hero + FollowSection.js) ===== */
+.follow-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /* Filas de 3; la última fila se centra */
+  --follow-gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--follow-gap);
+}
+.follow-grid > li { flex: 0 0 calc((100% - 2 * var(--follow-gap)) / 3); }
+@media (max-width: 900px) {
+  .follow-grid > li { flex-basis: calc((100% - var(--follow-gap)) / 2); }
+}
+@media (max-width: 560px) {
+  .follow-grid > li { flex-basis: 100%; }
+}
+.follow-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 36px 24px 28px;
+  color: var(--color-text-main);
+  text-decoration: none;
+}
+.follow-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  margin-bottom: 12px;
+  border-radius: var(--radius-full);
+  background: rgba(var(--rgb-rayo), 0.08);
+  border: 1px solid var(--color-border-glow-rayo);
+  color: var(--color-rayo);
+  transition: all var(--transition-smooth);
+}
+.follow-card:hover .follow-icon,
+.follow-card:focus-visible .follow-icon {
+  background: var(--color-rayo);
+  color: var(--color-bg-primary);
+  transform: scale(1.06);
+}
+.follow-label {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+.follow-handle {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-sancocho);
+}
+.follow-what {
+  flex: 1;
+  margin: 6px 0 18px;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+@media (prefers-reduced-motion: reduce) {
+  .follow-card:hover .follow-icon { transform: none; }
+}
+
+/* Síguenos: frase pendiente y CTA de cada tarjeta */
+.follow-headline.is-pending { color: var(--color-text-dim); font-style: italic; font-size: clamp(1.4rem, 3vw, 2.2rem); }
+.follow-cta { width: 100%; justify-content: center; }
+.follow-card.is-soon { cursor: default; }
+.follow-card.is-soon:hover { transform: none; }
+.follow-card.is-soon .follow-icon { opacity: 0.7; }
+/* Botón de marca Instagram (los de Spotify y YouTube están arriba, junto a .btn) */
+.btn-instagram {
+  background: linear-gradient(45deg, #f09433, #dc2743 50%, #bc1888);
+  color: #fff;
+  font-weight: 700;
+}
+.btn-instagram:hover {
+  box-shadow: 0 0 20px rgba(220, 39, 67, 0.5);
+  transform: translateY(-2px);
+}
+.btn-youtube { font-weight: 700; }
+/* Botón de marca TikTok: negro con el desfase cian/rojo de su logo */
+.btn-tiktok {
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: -2px 0 0 #25f4ee, 2px 0 0 #fe2c55;
+}
+.btn-tiktok:hover { transform: translateY(-2px); box-shadow: -3px 0 0 #25f4ee, 3px 0 0 #fe2c55; }
+/* Etiqueta "Pronto" en una red destacada aún sin URL */
+.btn-soon-tag {
+  margin-left: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 0, 0, 0.35);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
