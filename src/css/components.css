@@ -2478,3 +2478,95 @@
 }
 .preview-badge-cta:hover, .preview-badge-cta:focus-visible { background: var(--color-hueso); }
 .audio-player-bar ~ .preview-badge { bottom: calc(var(--player-height) + 16px); }
+
+/* ===== Síguenos en redes (Hero + FollowSection.js) ===== */
+.hero-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: -20px;
+}
+.hero-social-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.hero-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-card);
+  color: var(--color-text-main);
+  transition: all var(--transition-smooth);
+}
+.hero-social-icon:hover,
+.hero-social-icon:focus-visible {
+  color: var(--color-rayo);
+  border-color: var(--color-border-glow-rayo);
+  transform: translateY(-2px);
+}
+
+.follow-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.follow-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 36px 24px 28px;
+  color: var(--color-text-main);
+  text-decoration: none;
+}
+.follow-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  margin-bottom: 12px;
+  border-radius: var(--radius-full);
+  background: rgba(var(--rgb-rayo), 0.08);
+  border: 1px solid var(--color-border-glow-rayo);
+  color: var(--color-rayo);
+  transition: all var(--transition-smooth);
+}
+.follow-card:hover .follow-icon,
+.follow-card:focus-visible .follow-icon {
+  background: var(--color-rayo);
+  color: var(--color-bg-primary);
+  transform: scale(1.06);
+}
+.follow-label {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+.follow-handle {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-sancocho);
+}
+.follow-what {
+  flex: 1;
+  margin: 6px 0 18px;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-social-icon:hover, .follow-card:hover .follow-icon { transform: none; }
+}

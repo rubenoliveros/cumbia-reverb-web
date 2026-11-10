@@ -1,12 +1,12 @@
 // src/pages/HomePage.js
 // Página de inicio: quién es Cumbia Reverb.
-// Hero → la banda (estilo + integrantes) → el disco (teaser) → próximo concierto → accesos.
+// Hero → la banda (estilo + integrantes) → el disco (teaser) → próximo concierto → síguenos en redes.
 
 import { renderHero, initHeroCanvas } from '../components/Hero.js';
 import { renderNextShow, initNextShow } from '../components/NextShow.js';
 import { bandData, isPending } from '../data/bandData.js';
 import { latestAlbum as album, albumPath } from '../data/musicData.js';
-import { featureRoutes } from '../routes.js';
+import { renderFollowSection } from '../components/FollowSection.js';
 import { flag } from '../components/flags.js';
 import { BAND_STYLES as STYLES } from './BandPage.js';
 
@@ -69,23 +69,7 @@ export function renderHomePage() {
 
     ${renderNextShow()}
 
-    <section class="section" id="explorar">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Explora</span>
-        </div>
-        <div class="feature-grid">
-          ${featureRoutes.map(route => `
-            <a href="#${route.path}" class="feature-card card-glass">
-              <span class="feature-card-icon">${route.icon}</span>
-              <h3 class="feature-card-title">${route.menuLabel}</h3>
-              <p class="feature-card-desc">${route.description}</p>
-              <span class="feature-card-cta">Entrar →</span>
-            </a>
-          `).join('')}
-        </div>
-      </div>
-    </section>
+    ${renderFollowSection()}
   `;
 }
 
