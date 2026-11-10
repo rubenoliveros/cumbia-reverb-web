@@ -2540,40 +2540,30 @@
   .follow-strip-icon:hover { transform: none; }
 }
 
-/* Franja de una sola acción: Spotify principal, Instagram/TikTok secundarios */
-.follow-strip {
-  position: relative;
-  padding: 56px 0;
-  border-top: 1px solid var(--color-border-subtle);
-  border-bottom: 1px solid var(--color-border-subtle);
-  background:
-    linear-gradient(90deg, rgba(var(--rgb-sancocho), 0.10), rgba(var(--rgb-rayo), 0.06) 50%, rgba(var(--rgb-sancocho), 0.10)),
-    var(--color-bg-secondary);
-}
-.follow-strip-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 24px;
-}
-.follow-strip-headline {
-  max-width: 760px;
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
-.follow-strip-headline.is-pending { color: var(--color-text-dim); font-style: italic; }
-.follow-strip-actions {
-  display: flex;
+/* Síguenos: frase pendiente, CTA de cada tarjeta, redes secundarias */
+.follow-headline.is-pending { color: var(--color-text-dim); font-style: italic; font-size: clamp(1.4rem, 3vw, 2.2rem); }
+.follow-cta { width: 100%; justify-content: center; }
+.follow-card.is-soon { cursor: default; }
+.follow-card.is-soon:hover { transform: none; }
+.follow-card.is-soon .follow-icon { opacity: 0.7; }
+.follow-strip-icon {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-card);
+  color: var(--color-text-main);
+  transition: all var(--transition-smooth);
 }
-.follow-strip-secondary { display: flex; align-items: center; gap: 12px; }
+.follow-strip-icon:hover,
+.follow-strip-icon:focus-visible {
+  color: var(--color-rayo);
+  border-color: var(--color-border-glow-rayo);
+  transform: translateY(-2px);
+}
+.follow-strip-secondary { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 32px; }
 .follow-strip-more {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -2592,9 +2582,7 @@
   transform: translateY(-2px);
 }
 .btn-youtube { font-weight: 700; }
-/* Red destacada aún sin URL: se ve igual pero no es clicable */
-.btn.is-soon { cursor: default; opacity: 0.85; }
-.btn.is-soon:hover { transform: none; box-shadow: none; }
+/* Etiqueta "Pronto" en una red destacada aún sin URL */
 .btn-soon-tag {
   margin-left: 4px;
   padding: 2px 8px;
@@ -2604,21 +2592,4 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-}
-.follow-strip-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--color-border-card);
-  color: var(--color-text-main);
-  transition: all var(--transition-smooth);
-}
-.follow-strip-icon:hover,
-.follow-strip-icon:focus-visible {
-  color: var(--color-rayo);
-  border-color: var(--color-border-glow-rayo);
-  transform: translateY(-2px);
 }
